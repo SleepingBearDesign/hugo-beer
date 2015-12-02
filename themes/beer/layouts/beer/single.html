@@ -1,0 +1,126 @@
+{{ partial "header.html" . }}
+<body class="lone-beer">
+    <div class="masthead-standard">
+        <div class="menu-btn"><i class="fa fa-bars"></i></div>
+        <img class="barley" src="img/mbc-barley.png" alt="">
+        <div class="logotype">
+            <a href="index.html">
+                <p>{{ .Site.Title }}</p>
+            </a>
+        </div>
+    </div>
+{{ partial "navbar.html" . }}
+<div class="site-overlay"></div>
+<div class="wrapper">
+    <h1 data-section-id="#home" class="youarehere">{{ .Site.Params.youarehere }}</h1>
+    <section>   
+        <div class="size1of2 sticky">
+           <img class="beer-glass" src="img/beers/snifter-{{ .Title | urlize }}.jpg" alt="{{ .Title }}">
+            <div class="wrap-directionals">
+            {{ if .Prev }}
+                <div class="go-left">
+                    <span class="full-height">
+                        <a href="{{.Prev.Permalink}}" class="link-tip" title="{{.Prev.Title}}"><img src="img/icon-dir-left.png" alt=""></a>
+                    </span>
+                </div>
+                {{ end }}
+                {{ if .Next }}
+                <div class="go-right">
+                    <span class="full-height">
+                        <a href="{{.Next.Permalink}}" class="link-tip" title="{{.Next.Title}}"><img src="img/icon-dir-right.png" alt=""></a>
+                    </span>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>        
+
+    <section>   
+        <div class="size1of2 scrolly">
+            <div class="big-beer-name">
+                <p class="brew-date"><span>First Crafted:</span> {{ .Params.params.BrewDate }}<br></p>
+                <span class="line-horiz"></span>
+                <p class="h2">{{ .Title }}<br>{{ .Params.params.Type }}</p>
+                <span class="line-horiz"></span>
+            </div>
+            <p>{{ .Content }}</p>
+            <!-- <img class="illustration" src="img/beers/tastingnote-{{ .Title | urlize }}.jpg" alt=""> -->
+            
+            <div class="beer-profile">
+                <div class="profile-stats">
+                    <span>
+                        <p>Color</p>
+                        <p>{{ .Params.params.Color }}</p>
+                    </span>
+                    <span>
+                        <p>ABV</p>
+                        <p>{{ .Params.params.ABV }}%</p>
+                    </span>
+                    <span>
+                        <p>IBU</p>
+                        <p>{{ .Params.params.IBU }}</p>
+                    </span>
+                    <span>
+                        <p>Malt</p>
+                        <p>{{ delimit .Params.params.Malt ", " ", and " }}</p>
+                    </span>
+                    <span>
+                        <p>Hops</p>
+                        <p>{{ delimit .Params.params.Hops ", " ", and " }}</p>
+                    </span>
+                </div>
+                
+                <div class="profile-image">
+                    <!-- <img src="img/beers/bottle-{{ .Title | urlize }}.jpg" alt="Bottled {{ .Title }}">                             -->
+                    <img src="img/beers/bottle.jpg" alt="Bottled {{ .Title }}">                            
+                </div>
+            </div>
+            
+
+            <div class="beeradvocate-wrapper">
+                <div class="beeradvocate-branding">
+                    <a href="http://www.beeradvocate.com/beer/profile/{{ .Site.Params.beeradvocate }}/{{ .Params.params.baID }}" target="_blank"><img src="img/logo-beeradvocate.png" alt=""></a>
+                </div>
+
+                <div class="beeradvocate-feed">
+                    <p>BA Score</p>
+                    <p>{{ .Params.params.baScore }}</p>
+                    <p>{{ .Params.params.baTitle }}</p>
+                    <p>{{ .Params.params.baRatings }}+ Ratings</p>
+                </div>
+
+                <div class="beeradvocate-footer">
+                    <span>Data provided by <a href="http://www.beeradvocate.com/beer/profile/{{ .Site.Params.beeradvocate }}/{{ .Params.params.baID }}" target="_blank">BeerAdvocate</a></span>
+                </div>
+            </div>
+
+
+           <div id="untappd-wrapper" data-beerid="{{ .Params.params.utID }}">
+                <div id="untappd-branding">
+                    <a href="http://untappd.com/{{ .Site.Params.untappd }}" target="_blank"><img src="img/logo-untappd.png" alt=""></a>
+                </div>
+                <div class="loading-indicator">
+                    <div class="load-wrap">
+                        <div class="cap-wrap">
+                            <div class="ridges"></div>
+                            <div class="top"></div>
+                        </div>
+                        <span>Loading feed</span>
+                    </div>                             
+                </div>
+                <ul id="untappd-feed">
+                    <!-- feed gets placed here -->
+                </ul>
+
+                <div class="untappd-footer">
+                    <span>Data provided by <a href="http://untappd.com/{{ .Site.Params.untappd }}" target="_blank">Untappd</a></span>
+                </div>
+            </div>
+            <br class="clear">
+
+<!--                     <div class="lonebeer-ghost"><a href="../peeper/"><img src="../../../img/text/explore-more-beer.png" alt="Explore More Beer"></a></div> -->
+
+        </div>
+    </section>      
+</div>
+{{ partial "footer.html" . }}

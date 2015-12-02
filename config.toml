@@ -1,0 +1,38 @@
+baseurl = "http://www.sleepingbeardesign.com/beer/"
+languageCode = "en-us"
+title = "Sleeping Bear Brewery"
+theme = "beer"
+
+[params]
+  youarehere = "Always Pure And Without Drugs or Poison"
+  heroquote = "Steeped in Tradition.  Brewed in Perfection."
+  heroquoteauthor = "Proudly Brewed in Downtown Muskegon, MI"
+  description = ""
+  ontap = ["Shifting Sands – IPA", "LMFAO - Nitro Stout", "Stage 5 Clinger - Amber", "Double Dunes - Double IPA", "Walter Blondale - Blonde Ale", "Renegade White - Double IPA", "Renegade Red - Double IPA"]
+  bottlestock = ["Feisty Latina Mexican Stout", "Your Mom on French Toast"]
+  team = ["Paul Aho", "Chris Buchanan", "Marco Caceres", "Ben Cichanowicz", "Ryan Poulin", "Cole Corbin", "Colleen Croteau", "Nick Diconzo", "PJ Disalvo", "Mark Fulton", "Jon Gagne", "Mark Fulton", "Phil Neil", "Spenser Wilson"]
+  twitter = "pigeonhillbrew"
+  facebook = "PigeonHillBrew"
+  untappd = "PigeonHillBrew"
+  instagram = "pigeonhillbrew"
+  beeradvocate = "20681"
+  baScore = "92"
+  baTitle = ""
+  baRatings = "30"
+  phone = "(231) 375-5184"
+  address1 = "500 W Western Ave Suite 1"
+  address2 = "Muskegon, MI 49440"
+  addresshelp = "Just East of Exit 114 off U.S. 31."
+  googlemaps = "https://goo.gl/maps/iYGcUDE1nVu"
+  email = "info@pigeonhillbrew.com"
+  Ganalytics = "XX-00000000-0"
+
+[[params.hours]]
+  days = "Monday-Thursday"
+  hours = "3pm-10pm"
+[[params.hours]]
+  days = "Friday-Saturday"
+  hours = "12pm-12am"
+[[params.hours]]
+  days = "Sunday"
+  hours = "12pm-8pm"
