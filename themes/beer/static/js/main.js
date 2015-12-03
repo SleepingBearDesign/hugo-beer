@@ -24,7 +24,7 @@
 		checkSomeAge();
 		// check for the beer id for feeds
 		checkSomeBeerIDs();
-		
+        checkBreweryID();		
 		
         // initialize som stuff
         init();
@@ -336,7 +336,7 @@
         var feed = new Instafeed({
             get: 'user',
             userId: 809574210,
-            accessToken: '1407333374.467ede5.bb187d4e1f6449eaa52846fccdb39475',
+            accessToken: '5751603.1677ed0.ac25029e824d4109bf8e38479a2b820d',
             resolution: 'standard_resolution',
             sortby: 'least-recent',
             limit: 4
@@ -507,7 +507,8 @@
 // UNTAPPD
 	
 var checkinsArray = [];
-var beerID = 128341; // this needs to be updated for each page
+var beerID = 1234; // this needs to be updated for each page
+var breweryID = 117201; // Pigeon Hill Brewery
 var todaysDate = moment().format('MMMM Do');
 var currentTime = moment().format('h:mm a');
 var yesterdaysDate = moment().subtract(1, 'days').format('MMMM Do');
@@ -519,53 +520,56 @@ function checkSomeBeerIDs(){
 	}
 }
 
-// UNTAPPD MBC BEER IDs:
-// 383188 Another One 
-// 519536 Dinner 
-// 239375 King Titus 
-// 49892 Lunch 
-// 29271 Mean Old Tom 
-// 128341 Mo
-// 13088 Peeper 
-// 468233 Red Wheelbarrow 
-// 554773 Tiny Beautiful Something
-// 383723 Weez
-// 10371 Zoe
+function checkBreweryID(){
+    if(typeof $('#untappd-wrapper').data("breweryid") !== "undefined"){
+        breweryID = $('#untappd-wrapper').data("breweryid");
+        createUntapped("brewery");
+    }
+}
 
-function createUntapped(){
-	$.getJSON("/untappd-cache/request.php?bid=" + beerID, function(data) {
+function createUntapped(type){
+    if (type == "brewery"){
+        //use untappd API - Coming Soon
 
-	    // when the json is returned store the level we want to grab info from
-	    var checkInData = data.response.checkins.items;
+    }else {
+        $.getJSON("/untappd-cache/request.php?bid=" + beerID, function(data) {
 
-	    // go through each of the sets of data
-	    $.each(checkInData, function(i) {
+            jsonCall();
 
-	        //create an array to store the info we need    	    
-	        checkinArray = {
-	            beer: checkInData[i].beer.beer_name,
-	            firstName: checkInData[i].user.first_name,
-	            lastName: checkInData[i].user.last_name,
-	            photo: checkInData[i].user.user_avatar,
-	            date: checkInData[i].created_at,
-	            time: checkInData[i].created_at,
-	            venue: checkInData[i].venue.venue_name,
-	            rating: checkInData[i].rating_score
-	        };
+        }).fail(function(d, textStatus, error) {
+            // in case the json fails for some reason display some error messages
+            console.log("getJSON failed, status: " + textStatus + ", error: " + error);
+            console.log(d);
 
-	        // push this array to the global array to access later
-	        checkinsArray.push(checkinArray);
-	    });
+        }); // end jsonp call
+    }
 
-	    // once we do all that call the function to display the HTML on the page	    
-	    outputHTML();
+    var jsonCall = function() {
+        // when the json is returned store the level we want to grab info from
+        var checkInData = data.response.checkins.items;
 
-	}).fail(function(d, textStatus, error) {
-	    // in case the json fails for some reason display some error messages
-	    console.log("getJSON failed, status: " + textStatus + ", error: " + error);
-	    console.log(d);
+        // go through each of the sets of data
+        $.each(checkInData, function(i) {
 
-	}); // end jsonp call
+            //create an array to store the info we need         
+            checkinArray = {
+                beer: checkInData[i].beer.beer_name,
+                firstName: checkInData[i].user.first_name,
+                lastName: checkInData[i].user.last_name,
+                photo: checkInData[i].user.user_avatar,
+                date: checkInData[i].created_at,
+                time: checkInData[i].created_at,
+                venue: checkInData[i].venue.venue_name,
+                rating: checkInData[i].rating_score
+            };
+
+            // push this array to the global array to access later
+            checkinsArray.push(checkinArray);
+        });
+
+        // once we do all that call the function to display the HTML on the page        
+        outputHTML();
+    };
 
 	// create a function to display HTML from the UNTAPPD feed
 	var outputHTML = function() {
@@ -622,6 +626,7 @@ function createUntapped(){
 
 // peeper
 // https://api.untappd.com/v4/beer/checkins/13088
+// https://untappd.com/brewery/117201
 // END UPTAPPD
 
 
@@ -823,7 +828,7 @@ $(function() {
             var siteLatLng = new google.maps.LatLng(sites[1], sites[2]);
             var marker = new google.maps.Marker({
                 clickable: false,
-                icon: 'http://mainebeercompany.com/img/marker-google.png',
+                icon: 'http://sleepingbeardesign.com/beer/img/marker-google.png',
                 map: map,
                 position: siteLatLng
             });
