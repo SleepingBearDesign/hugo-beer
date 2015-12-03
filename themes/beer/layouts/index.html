@@ -1,15 +1,5 @@
 {{ partial "header.html" . }}
-
 <body class="choice">
-	<div class="masthead-standard">
-		<div class="menu-btn"><i class="fa fa-bars"></i></div>
-		<img class="barley" src="img/mbc-barley.png" alt="">
-		<div class="logotype">
-			<a href="index.html">
-				<p>{{ .Title }}</p>
-			</a>
-		</div>
-	</div>
 	{{ partial "navbar.html" . }}
     <div class="site-overlay"></div>
     <div class="wrapper">
@@ -32,7 +22,7 @@
     				<span class="toggle-view"><img class="ico-grid" src="img/icon-grid.png" alt=""><img class="ico-col" src="img/icon-column.png" alt=""></span>
 
     				<div class="beer-wrapper-interior">
-                        {{ range .Data.Pages }}
+                        {{ range where .Data.Pages "Section" "beer" }}
                         <div class="single-beer-wrap hoverable" id="{{ .Title | urlize }}">
                             <a href="{{ .Permalink }}">
                                 <span class="wrap-beer-details">
@@ -40,23 +30,11 @@
                                     <span class="line"></span>
                                     <h2>{{ .Title }}</h2>
                                     <span class="line"></span>
-                                    <p>View Beers <span class="caret-prompt">››</span></p>
+                                    <p>View Beer <span class="caret-prompt">››</span></p>
                                 </span>
                             </a>
                         </div>
                         {{ end }}
-<!-- 
-    					<div class="single-beer-wrap hoverable" id="hop-program">
-    						<a href="beers/hop-program/index.html">
-    							<span class="wrap-beer-details">
-    								<p class="when">February 2015</p>
-    								<span class="line"></span>
-    								<h2>Hop Program</h2>
-    								<span class="line"></span>
-    								<p>View Beers <span class="caret-prompt">››</span></p>
-    							</span>
-    						</a>
-    					</div> -->
 
     				</div>
     				<!--end beer wrapper interior -->
@@ -105,53 +83,18 @@
             </div>
     	</section>
 
-    	<!-- <h1 data-section-id="#friends">Our Friends</h1>
+    	<h1 data-section-id="#friends">Our Friends</h1>
     	<section id="friends" class="sect-friend selfclear">
-
+            {{ range where .Data.Pages "Section" "friends" }}
     		<div class="size1of2 single-friend-wrap">
-    			<a href="friends/allied-whale/index.html">
-    				<h2>Allied Whale</h2>
-    				<img class="foregroundImg" src="img/friends/alliedwhale.gif" alt="">
-    				<img class="backgroundImg" src="img/friends/alliedwhale.jpg" alt="">
+    			<a href="{{ .Permalink }}">
+    				<h2>{{ .Title }}</h2>
+    				<img class="foregroundImg" src="img/friends/{{ .Title | urlize }}.gif" alt="">
+    				<img class="backgroundImg" src="img/friends/{{ .Title | urlize }}.jpg" alt="">
     			</a>
     		</div>
-    		<div class="size1of2 single-friend-wrap">
-    			<a href="friends/freeport-conservation-trust/index.html">
-    				<h2>Freeport Conservation&nbsp;Trust</h2>
-    				<img class="foregroundImg" src="img/friends/conservationtrust.gif" alt="">
-    				<img class="backgroundImg" src="img/friends/conservationtrust.jpg" alt="">
-    			</a>
-    		</div>
-    		<div class="size1of2 single-friend-wrap">
-    			<a href="friends/hart/index.html">
-    				<h2>HART</h2>
-    				<img class="foregroundImg" src="img/friends/hart.gif" alt="">
-    				<img class="backgroundImg" src="img/friends/hart.jpg" alt="">
-    			</a>
-    		</div>
-    		<div class="size1of2 single-friend-wrap">
-    			<a href="friends/rails-to-trails/index.html">
-    				<h2>Rails-to-Trails</h2>
-    				<img class="foregroundImg" src="img/friends/railstotrails.gif" alt="">
-    				<img class="backgroundImg" src="img/friends/railstotrails.jpg" alt="">
-    			</a>
-    		</div>
-    		<div class="size1of2 single-friend-wrap">
-    			<a href="friends/dian-fossey-gorilla-fund/index.html">
-    				<h2>The Dian Fossey Gorilla&nbsp;Fund</h2>
-    				<img class="foregroundImg" src="img/friends/dianefossey.gif" alt="">
-    				<img class="backgroundImg" src="img/friends/dianefossey.jpg" alt="">
-    			</a>
-    		</div>
-    		<div class="size1of2 single-friend-wrap">
-    			<a href="friends/center-for-wildlife/index.html">
-    				<h2>Center for&nbsp;Wildlife</h2>
-    				<img class="foregroundImg" src="img/friends/centerforwildlife.gif" alt="">
-    				<img class="backgroundImg" src="img/friends/centerforwildlife.jpg" alt="">
-    			</a>
-    		</div>
-
-    	</section> -->
+            {{ end }}
+    	</section>
         {{ if .Site.Params.team }}
     	<h1 data-section-id="#team">Our Team</h1>
     	<section id="team" class="sect-team selfclear">
