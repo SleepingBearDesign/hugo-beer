@@ -1,0 +1,39 @@
+{{ partial "header.html" . }}
+<body class="single-friend">
+{{ partial "navbar.html" . }}
+<div class="site-overlay"></div>
+<div class="wrapper">
+    <h1 data-section-id="#home" class="youarehere">{{ .Site.Params.youarehere }}</h1>       
+    <section>   
+        <div class="size1of2 scrolly">
+            <h2>{{ .Title }}</h2>
+            <p>{{ .Description }}</p>
+            <p><a class="outbound" href="{{ .Params.params.url }}" target="_blank">Visit their website <span class="caret-prompt">››</span></a></p>
+            {{ range .Params.params.images }}
+            <img class="" src="img/friends/{{ . }}.jpg" alt=""> 
+            {{ end }}
+        </div>
+    </section>
+    <section>   
+        <div class="size1of2 sticky">
+           <img class="friend-logo" src="img/friends/{{ .Title | urlize }}-logo .jpg" alt="{{ .Title }}">
+            <div class="wrap-directionals">
+            {{ if .PrevInSection }}
+                <div class="go-left">
+                    <span class="full-height">
+                        <a href="{{.PrevInSection.Permalink}}" class="link-tip" title="{{.PrevInSection.Title}}"><img src="img/icon-dir-left.png" alt=""></a>
+                    </span>
+                </div>
+                {{ end }}
+                {{ if .NextInSection }}
+                <div class="go-right">
+                    <span class="full-height">
+                        <a href="{{.NextInSection.Permalink}}" class="link-tip" title="{{.NextInSection.Title}}"><img src="img/icon-dir-right.png" alt=""></a>
+                    </span>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>   
+</div>
+{{ partial "footer.html" . }}
