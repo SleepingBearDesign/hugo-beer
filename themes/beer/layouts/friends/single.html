@@ -5,18 +5,8 @@
 <div class="wrapper">
     <h1 data-section-id="#home" class="youarehere">{{ .Site.Params.youarehere }}</h1>       
     <section>   
-        <div class="size1of2 scrolly">
-            <h2>{{ .Title }}</h2>
-            <p>{{ .Description }}</p>
-            <p><a class="outbound" href="{{ .Params.params.url }}" target="_blank">Visit their website <span class="caret-prompt">››</span></a></p>
-            {{ range .Params.params.images }}
-            <img class="" src="img/friends/{{ . }}" alt=""> 
-            {{ end }}
-        </div>
-    </section>
-    <section>   
         <div class="size1of2 sticky">
-           <img class="friend-logo" src="img/friends/{{ .Title | urlize }}-logo .jpg" alt="{{ .Title }}">
+           <img class="friend-logo" src="img/friends/{{ .Title | urlize }}-logo.gif" alt="{{ .Title }}">
             <div class="wrap-directionals">
             {{ if .PrevInSection }}
                 <div class="go-left">
@@ -34,6 +24,16 @@
                 {{ end }}
             </div>
         </div>
-    </section>   
+    </section> 
+    <section>   
+        <div class="size1of2 scrolly">
+            <h2>{{ .Title }}</h2>
+            <p>{{ .Description }}</p>
+            <p><a class="outbound" href="{{ .Params.url }}" target="_blank">Visit their website <span class="caret-prompt">››</span></a></p>
+            {{ range .Params.images }}
+            <img class="" src="img/friends/{{ . }}" alt=""> 
+            {{ end }}
+        </div>
+    </section>  
 </div>
 {{ partial "footer.html" . }}

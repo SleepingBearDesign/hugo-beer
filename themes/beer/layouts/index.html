@@ -1,9 +1,9 @@
 {{ partial "header.html" . }}
-<body class="choice">
+<body>
 	{{ partial "navbar.html" . }}
     <div class="site-overlay"></div>
     <div class="wrapper">
-    	<h1 data-section-id="#home" class="youarehere">{{ .Site.Params.youarehere }}</h1>
+    	<h1 data-section-id="#home" class="youarehere">{{ .Site.Title }}</h1>
     	<section id="home">
     		<div class="sect-hero hero-us selfclear">
     			<div class="size1of1">
@@ -102,18 +102,17 @@
             <div class="size1of4 single-team-wrap headshot">
                 <a>
                     <p class="person-name">{{ . }}</p>
-                    <img class="teamImg" src="perch/resources/{{ . | urlize }}.jpg" alt="{{ . }}" />
+                    <img class="teamImg" src="img/team/{{ . | urlize }}.jpg" alt="{{ . }}" />
                 </a>
             </div>
             {{ end }}
-            
-                <div class="size1of4 single-team-wrap job-opening">
-                    <a href="jobs.php" class="selfclear">
-                        <p class="person-name">Want to work<br>at {{ .Title }}?</p>
-                        <p class="job-link"><span class="mimic-link">Job openings <span class="caret-prompt">››</span></span></p>
-                        <img class="teamImg" src="img/job-photo.jpg" alt="">
-                    </a>
-                </div>
+            <div class="size1of4 single-team-wrap job-opening">
+                <a href="#" class="selfclear">
+                    <p class="person-name">Want to work<br>at {{ .Title }}?</p>
+                    <p class="job-link"><span class="mimic-link">Job openings <span class="caret-prompt">››</span></span></p>
+                    <img class="teamImg" src="img/job-photo.jpg" alt="">
+                </a>
+            </div>
         </section>
         {{ end }}
         {{ if .Site.Params.instagram }}
@@ -165,7 +164,7 @@
         					<p>We do not currently offer brewery tours, but stop by our tasting room and get an up-close view of the brewery operations through the glass windows.</p>
         				</p>
         				<p>
-        					<p>The tasting room features 8 beers on tap, including some brewery-only releases. Snacks from local vendors are available, as well as bottles of our beer, merchandise and gift certificates.</p>
+        					<p>The tasting room features {{ .Site.Params.totaltaps }} beers on tap, including some brewery-only releases. Snacks from local vendors are available, as well as bottles of our beer, merchandise and gift certificates.</p>
         				</p>
         				<p>
         					<p>The tasting room is closed on the following holidays: New Year&#8217;s Day, Easter, Memorial Day, July 4th, Labor Day, Thanksgiving, and Christmas Day.</p>
@@ -181,9 +180,9 @@
         		<div class="single-distro-wrap">
         			<h2>Pigeon Hill Upcoming Events</h2>
         			<div class="beer-finder">
-        				<a href="beer-finder.html">
-        					<img src="img/beernoculars.jpg" alt="">
-        					<span class="beernocular-ghost"><img src="img/text/take-a-look.png" alt="Take a look"></span>
+        				<a href="#events">
+        					<img src="img/events.png" alt="Events Calendar">
+        					<span class="events-ghost"><img src="img/text/take-a-look.png" alt="Take a look"></span>
         				</a>
         			</div>
         		</div>
@@ -237,7 +236,7 @@
         			<div class="single-connection-wrap">
         				<p class="h5">Get in touch:</p>
         				<p>{{ .Site.Params.phone }}</p>
-        				<p class="link-email"><a href='mailto:{{ .Site.Params.email }}'>email</a> | <a href="jobs.php">employment</a></p>
+        				<p class="link-email"><a href='mailto:{{ .Site.Params.email }}'>email</a> | <a href="#">employment</a></p>
         			</div>
         			<!--.single-connection-wrap-->
         		</div>
@@ -255,7 +254,7 @@
 
         			<div class="right-side">
         				<a href="{{ .Site.Params.googlemaps }}" target="_blank">
-        					<img src="http://www.mainebeercompany.com/img/map-google-directions.png" alt="">
+        					<img src="img/google-maps-logo.png" alt="Google Maps">
         					<span>Directions</span>
         				</a>
         			</div>

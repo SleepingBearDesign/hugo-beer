@@ -29,9 +29,9 @@
     <section>   
         <div class="size1of2 scrolly">
             <div class="big-beer-name">
-                <p class="brew-date"><span>First Crafted:</span> {{ .Params.params.BrewDate }}<br></p>
+                <p class="brew-date"><span>First Crafted:</span> {{ .Params.brewdate }}<br></p>
                 <span class="line-horiz"></span>
-                <p class="h2">{{ .Title }}<br>{{ .Params.params.Type }}</p>
+                <p class="h2">{{ .Title }}<br>{{ .Params.style }}</p>
                 <span class="line-horiz"></span>
             </div>
             <p>{{ .Content }}</p>
@@ -41,23 +41,23 @@
                 <div class="profile-stats">
                     <span>
                         <p>Color</p>
-                        <p>{{ .Params.params.Color }}</p>
+                        <p>{{ .Params.color }}</p>
                     </span>
                     <span>
                         <p>ABV</p>
-                        <p>{{ .Params.params.ABV }}%</p>
+                        <p>{{ .Params.abv }}%</p>
                     </span>
                     <span>
                         <p>IBU</p>
-                        <p>{{ .Params.params.IBU }}</p>
+                        <p>{{ .Params.ibu }}</p>
                     </span>
                     <span>
                         <p>Malt</p>
-                        <p>{{ delimit .Params.params.Malt ", " ", and " }}</p>
+                        <p>{{ delimit .Params.malt ", " ", and " }}</p>
                     </span>
                     <span>
                         <p>Hops</p>
-                        <p>{{ delimit .Params.params.Hops ", " ", and " }}</p>
+                        <p>{{ delimit .Params.hops ", " ", and " }}</p>
                     </span>
                 </div>
                 
@@ -70,23 +70,23 @@
 
             <div class="beeradvocate-wrapper">
                 <div class="beeradvocate-branding">
-                    <a href="http://www.beeradvocate.com/beer/profile/{{ .Site.Params.beeradvocate }}/{{ .Params.params.baID }}" target="_blank"><img src="img/logo-beeradvocate.png" alt=""></a>
+                    <a href="http://www.beeradvocate.com/beer/profile/{{ .Site.Params.beeradvocate }}/{{ .Params.baid }}" target="_blank"><img src="img/logo-beeradvocate.png" alt=""></a>
                 </div>
 
                 <div class="beeradvocate-feed">
                     <p>BA Score</p>
-                    <p>{{ .Params.params.baScore }}</p>
-                    <p>{{ .Params.params.baTitle }}</p>
-                    <p>{{ .Params.params.baRatings }}+ Ratings</p>
+                    <p>{{ .Params.bascore }}</p>
+                    <p>{{ .Params.batitle }}</p>
+                    <p>{{ .Params.baratings }}+ Ratings</p>
                 </div>
 
                 <div class="beeradvocate-footer">
-                    <span>Data provided by <a href="http://www.beeradvocate.com/beer/profile/{{ .Site.Params.beeradvocate }}/{{ .Params.params.baID }}" target="_blank">BeerAdvocate</a></span>
+                    <span>Data provided by <a href="http://www.beeradvocate.com/beer/profile/{{ .Site.Params.beeradvocate }}/{{ .Params.baid }}" target="_blank">BeerAdvocate</a></span>
                 </div>
             </div>
 
 
-           <div id="untappd-wrapper" data-beerid="{{ .Params.params.utID }}">
+           <div id="untappd-wrapper" data-beerid="{{ .Params.utid }}">
                 <div id="untappd-branding">
                     <a href="http://untappd.com/{{ .Site.Params.untappd }}" target="_blank"><img src="img/logo-untappd.png" alt=""></a>
                 </div>

@@ -104,7 +104,7 @@ img {
   margin-right: auto; }
 
 .outbound, .sect-404 .hero-quote-author a, .sect-tenet .barley-badge .a, .sect-hiring p a, .sect-event .single-event-wrap a, .sect-connection .link-email a {
-  border-bottom: 1px solid #220d60;
+  border-bottom: 1px solid #94200E;
   margin-bottom: 2px;
   -webkit-transition: padding 0.1s ease-in-out;
   -moz-transition: padding 0.1s ease-in-out;
@@ -212,7 +212,7 @@ p.h2 .at-symbol, .sect-connection p.h5, .sect-hiring p strong, .sect-hiring p.hi
     TYPOGRAPHY
 ------------------------------------------------------------------------------------------------------------------------------*/
 body {
-  color: #220d60; }
+  color: #94200E; }
 
 /*--------------------------------
  * logotype
@@ -364,7 +364,7 @@ p {
 p a,
 .sect-event a {
   font-size: 18px;
-  color: #220d60;
+  color: #94200E;
   text-decoration: none; }
 
 .sect-connection p {
@@ -378,7 +378,7 @@ p a,
     margin-bottom: 0; }
 
 a {
-  color: #220d60;
+  color: #94200E;
   text-decoration: none; }
 
 @media screen and (max-width: 900px) {
@@ -520,7 +520,7 @@ a {
     font-family: 'BaskervilleMTPro-Semibold';
     font-weight: 400;
     font-style: normal;
-    border-bottom: 1px solid #220d60;
+    border-bottom: 1px solid #94200E;
     -webkit-transition: padding 0.1s ease-in-out;
     -moz-transition: padding 0.1s ease-in-out;
     -ms-transition: padding 0.1s ease-in-out;
@@ -603,7 +603,7 @@ a {
   padding: 10px 0 10px 60px;
   border-bottom: none;
   position: relative;
-  color: #220d60; }
+  color: #94200E; }
 
 .pushy li a:hover:before,
 .pushy li a.active:before {
@@ -823,7 +823,7 @@ a {
     margin-top: 10px;
     margin-left: 3px;
     text-align: center;
-    border-right: 1px solid #220d60;
+    border-right: 1px solid #94200E;
     cursor: pointer;
     -webkit-transition: opacity 0.1s ease-in-out;
     -moz-transition: opacity 0.1s ease-in-out;
@@ -920,11 +920,11 @@ body:after {
 
 ::selection {
   background: #dddcd1;
-  color: #220d60; }
+  color: #94200E; }
 
 ::-moz-selection {
   background: #dddcd1;
-  color: #220d60; }
+  color: #94200E; }
 
 /*----------------------------------------------------------------------------------------------------------------------------
     PAGE SYSTEMS
@@ -1140,7 +1140,7 @@ body:after {
   position: relative;
   width: 100%;
   text-align: center;
-  background: #494657; }
+  background: #B53926; }
 
 .illustration {
   margin-bottom: 50px; }
@@ -1151,7 +1151,7 @@ body:after {
 .tenet-ghost {
   width: 40%;
   max-width: 185px;
-  border: 2px solid #220d60;
+  border: 2px solid #94200E;
   margin: -40px auto 80px;
   -webkit-transition: border 0.1s ease-in-out;
   -moz-transition: border 0.1s ease-in-out;
@@ -1167,7 +1167,7 @@ body:after {
 .friend-ghost {
   width: 62%;
   max-width: 290px;
-  border: 2px solid #220d60;
+  border: 2px solid #94200E;
   margin: 50px auto 80px;
   -webkit-transition: border 0.1s ease-in-out;
   -moz-transition: border 0.1s ease-in-out;
@@ -1183,7 +1183,7 @@ body:after {
 .lonebeer-ghost {
   width: 77%;
   max-width: 360px;
-  border: 2px solid #220d60;
+  border: 2px solid #94200E;
   margin: 50px auto 80px;
   -webkit-transition: border 0.1s ease-in-out;
   -moz-transition: border 0.1s ease-in-out;
@@ -1196,11 +1196,11 @@ body:after {
   .lonebeer-ghost:hover {
     border-color: transparent; }
 
-.beernocular-ghost img {
+.events-ghost img {
   display: block;
   width: 60% !important;
   max-width: 270px;
-  border: 2px solid #220d60;
+  border: 2px solid #94200E;
   margin: 40px auto 0;
   -webkit-transition: border 0.1s ease-in-out;
   -moz-transition: border 0.1s ease-in-out;
@@ -1208,17 +1208,17 @@ body:after {
   -o-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out; }
   @media screen and (max-width: 1100px) {
-    .beernocular-ghost img {
+    .events-ghost img {
       margin-top: 30px;
       width: 65% !important;
       max-width: 260px; } }
   @media screen and (max-width: 850px) {
-    .beernocular-ghost img {
+    .events-ghost img {
       width: 70% !important; } }
   @media screen and (max-width: 800px) {
-    .beernocular-ghost img {
+    .events-ghost img {
       width: 45% !important; } }
-  .beernocular-ghost img:hover {
+  .events-ghost img:hover {
     border-color: transparent; }
 
 /*----------------------------------------------------------------------------------------------------------------------------
@@ -1263,7 +1263,7 @@ body:after {
         line-height: 0; } }
   .sect-them .single-them-wrap a {
     font-size: 16px;
-    border-bottom: 1px solid #220d60; }
+    border-bottom: 1px solid #94200E; }
 
 @media screen and (max-width: 700px) {
   .intro-image {
@@ -1326,7 +1326,7 @@ body:after {
     transform: translate(-50%, -50%);
     top: 40%; }
   .sect-404 p {
-    color: #220d60; }
+    color: #94200E; }
   .sect-404 .hero-quote-author {
     padding: 0 50px; }
 
@@ -1406,7 +1406,7 @@ body.choice .wrap-selection {
   left: 0; }
   .choice-of-age .real img {
     width: 95%;
-    border: 2px solid #220d60;
+    border: 2px solid #94200E;
     cursor: pointer;
     -webkit-transition: border 0.1s ease-in-out;
     -moz-transition: border 0.1s ease-in-out;
@@ -1468,7 +1468,7 @@ body.choice .wrap-selection {
       border-color: transparent; }
   .choice-of-sites .choiceA .arrow,
   .choice-of-sites .choiceB .arrow {
-    border: 2px solid #220d60;
+    border: 2px solid #94200E;
     border-radius: 50%;
     width: 52px;
     height: 52px;
@@ -1536,7 +1536,7 @@ body.choice .wrap-selection {
     SECT-HERO
 ------------------------------------------------------------------------------------------------------------------------------*/
 .sect-hero {
-  background: #220d60;
+  background: #94200E;
   background-position: 0 center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1554,7 +1554,7 @@ body.choice .wrap-selection {
     transform: translate(-50%, -50%);
     top: 40%; }
   .sect-hero.hero-us {
-    background-image: url("../img/hero-beer.jpg"); }
+    background-image: url("../img/hero-beer-ph.jpg"); }
   .sect-hero.hero-them {
     background-image: url("../img/hero-them.jpg"); }
   .sect-hero.hero-aaron, .sect-hero.hero-assured, .sect-hero.hero-bangs, .sect-hero.hero-derifarm, .sect-hero.hero-nedistilling, .sect-hero.hero-garbage {
@@ -1702,7 +1702,7 @@ body.choice .wrap-selection {
   height: 40px;
   left: 50%;
   margin-left: -294px;
-  color: #220d60; }
+  color: #94200E; }
 
 .warped > span[class^=w]:nth-of-type(n+0) {
   display: block;
@@ -2217,7 +2217,7 @@ body.lone-tenet .sticky {
         display: block;
         width: 100px;
         margin: 0 auto;
-        background: #220d60;
+        background: #94200E;
         height: 1px; }
       #beer-wrapper .beer-wrapper-interior .single-beer-wrap:after {
         background-image: url(../img/beers/slider-empty.jpg); }
@@ -2560,6 +2560,7 @@ body.lone-tenet .sticky {
       left: 0;
       opacity: 0.9; }
   .single-friend-wrap a h2 {
+    /* findme color: #fff;*/
     -webkit-transition: opacity 0.4s ease-in-out;
     -moz-transition: opacity 0.4s ease-in-out;
     -ms-transition: opacity 0.4s ease-in-out;
@@ -2718,7 +2719,7 @@ body.lone-tenet .sticky {
 .single-instagram-header,
 .single-shop-header {
   height: 110px;
-  background: #494657;
+  background: #B53926;
   color: #f5f4ef; }
 
 .single-instagram-header .grayed, .single-instagram-header a {
@@ -2843,7 +2844,7 @@ body.lone-tenet .sticky {
     SECT-HIRING
 ------------------------------------------------------------------------------------------------------------------------------*/
 .sect-hiring {
-  background: url("http://www.mainebeercompany.com/img/bg-hiring.jpg");
+  background: url("../img/bg-hiring.jpg");
   background-size: cover;
   padding-top: 70px;
   padding-bottom: 70px;
@@ -2897,7 +2898,7 @@ body.lone-tenet .sticky {
     display: block;
     width: 100px;
     margin: 0 auto;
-    background: #220d60;
+    background: #94200E;
     height: 1px; }
   .sect-hiring h2 {
     text-align: center;
@@ -2910,7 +2911,7 @@ body.lone-tenet .sticky {
       margin-top: 0; } }
   .sect-hiring p a {
     font-size: 16px;
-    border-bottom: 1px solid #220d60; }
+    border-bottom: 1px solid #94200E; }
   .sect-hiring p .line:first-child {
     margin-top: 35px;
     margin-bottom: 6px; }
@@ -2983,7 +2984,7 @@ body.lone-tenet .sticky {
   margin-top: -1px;
   color: #f5f4ef;
   position: relative;
-  background: #494657; }
+  background: #B53926; }
 .sect-distribution .unitB .single-distro-wrap {
   width: 300px;
   position: absolute;
@@ -3135,7 +3136,7 @@ body.lone-tenet .sticky {
     SECT-CONNECTION
 ------------------------------------------------------------------------------------------------------------------------------*/
 .sect-connection {
-  background: #494657;
+  background: #B53926;
   position: relative;
   padding-top: 35px;
   padding-bottom: 15px;
@@ -3173,7 +3174,7 @@ body.lone-tenet .sticky {
     width: 1px;
     height: 100px;
     margin-top: -50px;
-    background: #555555;
+    background: #f5f4ef;
     z-index: 9; }
   .sect-connection a {
     color: #f5f4ef; }
@@ -3207,9 +3208,9 @@ body.lone-tenet .sticky {
     text-align: center;
     background: none; }
   .sect-connection input.text:hover {
-    color: #494657; }
+    color: #B53926; }
   .sect-connection input.text:focus {
-    color: #494657;
+    color: #B53926;
     -moz-box-shadow: 0px 6px 6px #fff;
     -webkit-box-shadow: 0px 0px 6px #fff;
     box-shadow: 0px 0px 6px #fff; }
@@ -3275,9 +3276,9 @@ body.lone-tenet .sticky {
     SECT-MAP
 ------------------------------------------------------------------------------------------------------------------------------*/
 .shop-map {
-  border-left: 4px solid #494657;
-  border-bottom: 4px solid #494657;
-  border-right: 4px solid #494657;
+  border-left: 4px solid #B53926;
+  border-bottom: 4px solid #B53926;
+  border-right: 4px solid #B53926;
   position: relative;
   padding-bottom: 23.5%;
   padding-bottom: 300px;
@@ -3303,9 +3304,9 @@ body.lone-tenet .sticky {
 #map_canvas {
   position: relative;
   z-index: 10;
-  border-left: 4px solid #494657;
-  border-bottom: 4px solid #494657;
-  border-right: 4px solid #494657;
+  border-left: 4px solid #B53926;
+  border-bottom: 4px solid #B53926;
+  border-right: 4px solid #B53926;
   max-width: 100%;
   height: 300px; }
 
@@ -3396,11 +3397,11 @@ body.lone-tenet .sticky {
   .lone-beer .scrolly p a {
     font-size: 16px; }
     .lone-beer .scrolly p a:hover {
-      border-bottom: 1px solid #220d60; }
+      border-bottom: 1px solid #94200E; }
 
 .scrolly .beer-profile {
   overflow: hidden;
-  background: #7f7cb1;
+  background: #D2B44C;
   position: relative; }
   .scrolly .beer-profile p {
     margin: 0;
@@ -3411,7 +3412,7 @@ body.lone-tenet .sticky {
     font-size: 14px;
     line-height: 20px;
     text-transform: uppercase;
-    color: #cfcdcd; }
+    color: #dedede; }
     .scrolly .beer-profile p:nth-child(1) {
       font-size: 26px;
       color: white;
@@ -3423,15 +3424,15 @@ body.lone-tenet .sticky {
     display: block;
     padding: 15px 35px 17px 30px; }
     .scrolly .profile-stats span:nth-of-type(1) {
-      background: #120e5b; }
+      background: #453500; }
     .scrolly .profile-stats span:nth-of-type(2) {
-      background: #2f2c71; }
+      background: #6F5600; }
     .scrolly .profile-stats span:nth-of-type(3) {
-      background: #4a4887; }
+      background: #94760E; }
     .scrolly .profile-stats span:nth-of-type(4) {
-      background: #5e5b9e; }
+      background: #B49427; }
     .scrolly .profile-stats span:nth-of-type(5) {
-      background: #7f7cb1; }
+      background: #D2B44C; }
 .scrolly .profile-image {
   width: 100%;
   background: white;
@@ -3459,7 +3460,7 @@ body.lone-tenet .sticky {
     margin: 0;
     margin-top: 5px;
     font-size: 24px;
-    color: #220d60;
+    color: #94200E;
     text-transform: none; }
   .scrolly .hop-profile p {
     margin: 0;
@@ -3467,7 +3468,7 @@ body.lone-tenet .sticky {
     padding: 0;
     color: white;
     text-align: left;
-    color: #220d60; }
+    color: #94200E; }
 .scrolly .hop-beers {
   width: 100%;
   float: right; }
@@ -3649,7 +3650,7 @@ body.lone-tenet .sticky {
             font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important;
             font-size: 15px;
             line-height: 18px;
-            color: #220d60; }
+            color: #94200E; }
             #untappd-wrapper ul#untappd-feed li.post .user-info p a {
               font-size: 14px;
               text-decoration: none;
@@ -3749,7 +3750,7 @@ body.lone-tenet .sticky {
     padding-top: 85px; }
     .loading-indicator .load-wrap span {
       display: block;
-      color: #220d60;
+      color: #94200E;
       text-transform: uppercase; }
 
 .cap-wrap {
@@ -3785,12 +3786,12 @@ body.lone-tenet .sticky {
   display: block;
   width: 100px;
   margin: 0 auto;
-  background: #220d60;
+  background: #94200E;
   height: 1px; }
 
 .line-vert {
   display: block;
   height: 100px;
-  background: #555555;
+  background: #f5f4ef;
   float: left;
   width: 1px; }
