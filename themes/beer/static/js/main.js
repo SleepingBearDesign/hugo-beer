@@ -301,6 +301,7 @@
             var currentLink = $(this); // returns <a href="#test"></a>
             var currentLinkHREF = currentLink.attr('href'); // returns #test
             var refElement = $(currentLinkHREF); // returns $('#test')
+            var quarterWinHeight = $win.height()/4;
             
             // check to see if the top of $('#test') is at browser top
             // if it is update the slide nav
@@ -726,7 +727,7 @@ $(function() {
             "featureType": "poi",
             "elementType": "geometry",
             "stylers": [{ // park squres - green
-                "color": "#d4e7be"
+                "color": "#D2B44C"
             }]
         }, {
             "elementType": "labels.text.fill",
@@ -772,7 +773,7 @@ $(function() {
             "stylers": [{
                 "visibility": "on"
             }, { // all water
-                "color": "#bbc2d3"
+                "color": "#F6DB7C"
             }],
         }, {
             "featureType": "water",
