@@ -519,61 +519,36 @@ var yesterdaysDate = moment().subtract(1, 'days').format('MMMM Do');
 function checkSomeBeerIDs(){
 	if(typeof $('#untappd-wrapper').data("beerid") !== "undefined"){
 		beerID = $('#untappd-wrapper').data("beerid");
-		createUntapped();
+		createUntapped(beerID, "beer");
 	}
 }
 
 function checkBreweryID(){
     if(typeof $('#untappd-wrapper').data("breweryid") !== "undefined"){
         breweryID = $('#untappd-wrapper').data("breweryid");
-        createUntapped("brewery");
+        createUntapped(breweryID, "brewery");
     }
 }
 
 function checkVenueID(){
     if(typeof $('#untappd-wrapper').data("venueid") !== "undefined"){
         venueID = $('#untappd-wrapper').data("venueid");
-        createUntapped("venue");
+        createUntapped(venueID, "venue");
     }
 }
 
-function createUntapped(type){
-    if (type == "brewery"){
-        $.getJSON("/untappd-cache/request-brewery.php?bid=" + breweryID, function(data) {
+function createUntapped(uid, utype){
+    $.getJSON("/untappd-cache/request.php?uid=" + uid + "&utype=" + utype, function(data) {
 
-            jsonCall(data);
+        jsonCall(data);
 
-        }).fail(function(d, textStatus, error) {
-            // in case the json fails for some reason display some error messages
-            console.log("getJSON failed, status: " + textStatus + ", error: " + error);
-            console.log(d);
+    }).fail(function(d, textStatus, error) {
+        // in case the json fails for some reason display some error messages
+        console.log("getJSON failed, status: " + textStatus + ", error: " + error);
+        console.log(d);
 
-        }); // end jsonp call
-
-    }else if (type == "venue"){
-        $.getJSON("/untappd-cache/request-venue.php?bid=" + venueID, function(data) {
-
-            jsonCall(data);
-
-        }).fail(function(d, textStatus, error) {
-            // in case the json fails for some reason display some error messages
-            console.log("getJSON failed, status: " + textStatus + ", error: " + error);
-            console.log(d);
-
-        }); // end jsonp call
-
-    }else {
-        $.getJSON("/untappd-cache/request.php?bid=" + beerID, function(data) {
-
-            jsonCall(data);
-
-        }).fail(function(d, textStatus, error) {
-            // in case the json fails for some reason display some error messages
-            console.log("getJSON failed, status: " + textStatus + ", error: " + error);
-            console.log(d);
-
-        }); // end jsonp call
-    }
+    }); // end jsonp call
+    
 
     var jsonCall = function(data) {
         // when the json is returned store the level we want to grab info from
