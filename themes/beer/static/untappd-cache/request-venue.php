@@ -10,8 +10,8 @@ include ("handleCache.php");
 header("Content-type: application/json");
 
 // add your client ID / client secret
-$client_id = "XXXXXX";
-$client_secret = "XXXXX";
+$client_id = "";
+$client_secret = "";
 
 // initalize the Untapd class (note: the third param is redirect_url which is not needed here)
 $untappd = new UntappdPHP($client_id, $client_secret, "");
@@ -32,7 +32,7 @@ if (isset($_GET['bid']) && is_numeric($_GET['bid'])) {
 	$bid = $_GET['bid'];
 
 	// construct the file to save
-	$cachedFile = "untappd-checkin-feed-".$bid.".json";
+	$cachedFile = "untappd-venue-checkin-feed-".$bid.".json";
 	$cacheFilePath = $cachePath . "/". $cachedFile;
 
 	// get the last modified date of the file to determine when it was created/updated
@@ -50,7 +50,7 @@ if (isset($_GET['bid']) && is_numeric($_GET['bid'])) {
 			// cache has expired - let's go ahead and re-request data.
 
 			// request the data from the api, with a limit of 15 checkins (you can increase if need more)
-			$result = $untappd->get("/beer/checkins/".$bid, array("limit" => "15"));
+			$result = $untappd->get("/venue/checkins/".$bid, array("limit" => "15"));
 
 			// check if we get back a result
 			$return_array = handleCacheWrite($cacheFilePath, $result);
@@ -75,14 +75,14 @@ if (isset($_GET['bid']) && is_numeric($_GET['bid'])) {
 		// file doesn't exist, make call to Untappd to get data.
 
 		// request the data from the api, with a limit of 15 checkins (you can increase if need more)
-		$result = $untappd->get("/beer/checkins/".$bid, array("limit" => "15"));
+		$result = $untappd->get("/venue/checkins/".$bid, array("limit" => "15"));
 
 		// check if we get back a result
 		$return_array = handleCacheWrite($cacheFilePath, $result);
 	}
 } else {
 	// throw a error when BID isn't passed.
-	$return_array["error"] = "Invalid Beer ID";
+	$return_array["error"] = "Invalid Venue ID";
 }
 
 // output 

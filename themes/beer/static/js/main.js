@@ -24,7 +24,8 @@
 		checkSomeAge();
 		// check for the beer id for feeds
 		checkSomeBeerIDs();
-        checkBreweryID();		
+        checkBreweryID();	
+        checkVenueID();	
 		
         // initialize som stuff
         init();
@@ -510,6 +511,7 @@
 var checkinsArray = [];
 var beerID = 1234; // this needs to be updated for each page
 var breweryID = 117201; // Pigeon Hill Brewery
+var venueID = 1405081; // Pigeon Hill Brewery
 var todaysDate = moment().format('MMMM Do');
 var currentTime = moment().format('h:mm a');
 var yesterdaysDate = moment().subtract(1, 'days').format('MMMM Do');
@@ -528,14 +530,42 @@ function checkBreweryID(){
     }
 }
 
+function checkVenueID(){
+    if(typeof $('#untappd-wrapper').data("venueid") !== "undefined"){
+        venueID = $('#untappd-wrapper').data("venueid");
+        createUntapped("venue");
+    }
+}
+
 function createUntapped(type){
     if (type == "brewery"){
-        //use untappd API - Coming Soon
+        $.getJSON("/untappd-cache/request-brewery.php?bid=" + breweryID, function(data) {
+
+            jsonCall(data);
+
+        }).fail(function(d, textStatus, error) {
+            // in case the json fails for some reason display some error messages
+            console.log("getJSON failed, status: " + textStatus + ", error: " + error);
+            console.log(d);
+
+        }); // end jsonp call
+
+    }else if (type == "venue"){
+        $.getJSON("/untappd-cache/request-venue.php?bid=" + venueID, function(data) {
+
+            jsonCall(data);
+
+        }).fail(function(d, textStatus, error) {
+            // in case the json fails for some reason display some error messages
+            console.log("getJSON failed, status: " + textStatus + ", error: " + error);
+            console.log(d);
+
+        }); // end jsonp call
 
     }else {
         $.getJSON("/untappd-cache/request.php?bid=" + beerID, function(data) {
 
-            jsonCall();
+            jsonCall(data);
 
         }).fail(function(d, textStatus, error) {
             // in case the json fails for some reason display some error messages
@@ -545,7 +575,7 @@ function createUntapped(type){
         }); // end jsonp call
     }
 
-    var jsonCall = function() {
+    var jsonCall = function(data) {
         // when the json is returned store the level we want to grab info from
         var checkInData = data.response.checkins.items;
 
