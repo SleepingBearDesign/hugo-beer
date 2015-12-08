@@ -916,7 +916,7 @@ body {
 
 body:after {
   display: none;
-  content: url(../img/hero-beer.jpg) url(../img/hero-them.jpg); }
+  content: url(../img/hero-beer.jpg); }
 
 ::selection {
   background: #dddcd1;
@@ -2219,8 +2219,6 @@ body.lone-tenet .sticky {
         margin: 0 auto;
         background: #94200E;
         height: 1px; }
-      #beer-wrapper .beer-wrapper-interior .single-beer-wrap:after {
-        background-image: url(../img/beers/slider-empty.jpg); }
       #beer-wrapper .beer-wrapper-interior .single-beer-wrap#another-one:after {
         background-image: url(../img/beers/slider-another-one.jpg); }
       #beer-wrapper .beer-wrapper-interior .single-beer-wrap#dinner:after {
@@ -2347,7 +2345,7 @@ body.lone-tenet .sticky {
     #beer-wrapper .beer-wrapper-interior .single-beer-wrap:after #beer-wrapper .beer-wrapper-interior .single-beer-wrap:last-child {
       display: none; }
     #beer-wrapper .beer-wrapper-interior .single-beer-wrap:after {
-      background: #f5bf03; }
+      background: #fff; }
     #beer-wrapper .beer-wrapper-interior .single-beer-wrap#another-one:after {
       background: #f5bf03; }
     #beer-wrapper .beer-wrapper-interior .single-beer-wrap#dinner:after {

@@ -6,19 +6,19 @@
     <h1 data-section-id="#home" class="youarehere">{{ .Site.Params.youarehere }}</h1>
     <section>   
         <div class="size1of2 sticky">
-           <img class="beer-glass" src="img/beers/snifter-{{ .Title | urlize }}.jpg" alt="{{ .Title }}">
+           <img class="beer-glass" src="img/beers/glass-{{ .Title | urlize }}.jpg" alt="{{ .Title }}">
             <div class="wrap-directionals">
-            {{ if .PrevInSection }}
+                {{ if .NextInSection }}
                 <div class="go-left">
                     <span class="full-height">
-                        <a href="{{.PrevInSection.Permalink}}" class="link-tip" title="{{.PrevInSection.Title}}"><img src="img/icon-dir-left.png" alt=""></a>
+                        <a href="{{.NextInSection.Permalink}}" class="link-tip" title="{{.NextInSection.Title}}"><img src="img/icon-dir-left.png" alt=""></a>
                     </span>
                 </div>
                 {{ end }}
-                {{ if .NextInSection }}
+                {{ if .PrevInSection }}
                 <div class="go-right">
                     <span class="full-height">
-                        <a href="{{.NextInSection.Permalink}}" class="link-tip" title="{{.NextInSection.Title}}"><img src="img/icon-dir-right.png" alt=""></a>
+                        <a href="{{.PrevInSection.Permalink}}" class="link-tip" title="{{.PrevInSection.Title}}"><img src="img/icon-dir-right.png" alt=""></a>
                     </span>
                 </div>
                 {{ end }}
@@ -62,8 +62,7 @@
                 </div>
                 
                 <div class="profile-image">
-                    <!-- <img src="img/beers/bottle-{{ .Title | urlize }}.jpg" alt="Bottled {{ .Title }}">                             -->
-                    <img src="img/beers/bottle.jpg" alt="Bottled {{ .Title }}">                            
+                    <img src="img/beers/bottle-{{ .Title | urlize }}.jpg" alt="Bottled {{ .Title }}">
                 </div>
             </div>
             

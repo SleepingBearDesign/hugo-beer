@@ -1,6 +1,6 @@
 +++
 tags = ["lager"]
-date = "2015-12-01T22:49:24-07:00"
+date = "2015-02-01"
 description = ""
 slug = "full"
 title = "Full"
@@ -14,7 +14,7 @@ style = "Lager"
 baID = "120330"
 baRatings = "200"
 baScore = "84"
-utID = ""
+utID = "7249"
 
 +++
 

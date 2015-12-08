@@ -1,7 +1,10 @@
-baseurl = "http://www.sleepingbeardesign.com/beer/"
+baseurl = "http://45.55.251.5/"
 languageCode = "en-us"
 title = "Pigeon Hill Brewing Co."
 theme = "beer"
+GoogleAnalytics = "XX-00000000-0"
+Copyright = "© 2015 Pigeon Hill Brewing Company, LLC. All Rights Reserved"
+disableRSS = true
 
 [params]
   youarehere = "Pigeon Hill Brewing Co."
@@ -17,7 +20,7 @@ theme = "beer"
   facebook = "PigeonHillBrew"
   instagram = "pigeonhillbrew"
   untappd = "PigeonHillBrew"
-  untappedID = "117201"
+  untappedID = "1405081"
   beeradvocate = "20681"
   baScore = "92"
   baTitle = ""
@@ -28,7 +31,6 @@ theme = "beer"
   addresshelp = "Just East of Exit 114 off U.S. 31."
   googlemaps = "https://goo.gl/maps/iYGcUDE1nVu"
   email = "info@pigeonhillbrew.com"
-  Ganalytics = "XX-00000000-0"
 
 [[params.hours]]
   days = "Monday-Thursday"

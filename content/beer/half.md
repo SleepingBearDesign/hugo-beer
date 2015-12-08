@@ -1,6 +1,6 @@
 +++
 tags = ["ipa"]
-date = "2015-12-01T22:49:24-07:00"
+date = "2014-12-01"
 description = ""
 slug = "half"
 title = "Half"
@@ -14,7 +14,7 @@ style = "Session IPA"
 baID = "120330"
 baRatings = "100"
 baScore = "79"
-utID = ""
+utID = "12943"
 
 +++
 

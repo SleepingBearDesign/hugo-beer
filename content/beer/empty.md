@@ -2,7 +2,7 @@
 title = "Empty"
 description = "We made our first Double IPA."
 tags = [ "ipa", "double ipa"]
-date = "2015-12-12"
+date = "2015-05-01"
 slug = "empty"
 style = "Double IPA"
 brewdate = "March 2015"
