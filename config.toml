@@ -13,8 +13,8 @@ disableRSS = true
   heroquoteauthor = "Proudly Brewed in Downtown Muskegon, MI"
   description = "At Pigeon Hill Brewing Company, we believe in: Our hometown, Muskegon, MI; Our Community; and Excellent Craft Beer. We hope to see you in the taproom."
   ontap = ["Shifting Sands – IPA", "LMFAO - Nitro Stout", "Stage 5 Clinger - Amber", "Double Dunes - Double IPA", "Walter Blondale - Blonde Ale", "Renegade White - Double IPA", "Renegade Red - Double IPA"]
-  totaltaps = 8
   bottlestock = ["Feisty Latina Mexican Stout", "Your Mom on French Toast"]
+  growlerstatus = "We do offer growler and howler fills from the brewery so fill 'er on up!"
   team = ["Jonathan Crawford", "Carl Davidson", "Arthur Porter", "Andrea Bell", "Emily Jensen", "Crystal Barrett", "Brody Berson"]
   twitter = "pigeonhillbrew"
   facebook = "PigeonHillBrew"
@@ -41,3 +41,12 @@ disableRSS = true
 [[params.hours]]
   days = "Sunday"
   hours = "12pm-8pm"
+[[params.taproom]]
+    type = "tours"
+    content = "We do not currently offer brewery tours, but stop by our taproom and get an up-close view of the brewery operations through the glass windows."
+[[params.taproom]]
+    type = "description"
+    content = "We are proud to be a Muskegon microbrewery, and we strive to highlight local history throughout our taproom.  Both our production facility and taproom are located in beautiful downtown Muskegon, MI.  In our taproom, you will find all of the beers and non-alcohol beverages listed on our taplist. Snacks from local vendors (including “Belly Full of Hoppyness,” which uses our beer) are available, as well as bottles of our beer, merchandise and gift certificates. For those looking for a full meal, you are welcome to bring food with you or order delivery (we have menus on site)."
+[[params.taproom]]
+    type = "holidays"
+    content = "The taproom is closed on the following holidays: New Year's Day, Easter, Memorial Day, July 4th, Labor Day, Thanksgiving, and Christmas Day."

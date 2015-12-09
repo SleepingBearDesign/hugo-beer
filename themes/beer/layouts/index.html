@@ -115,7 +115,7 @@
                             {{ range sort .Site.Params.bottlestock }}<li>{{ . }}</li>{{ end }}
         				</ul>
         				<p>
-        					<p><em>We do offer growler and howler fills from the brewery so fill 'er on up!</em></p>
+        					{{ if .Site.Params.growlerstatus }}<p><em>{{ .Site.Params.growlerstatus }}</em></p>{{ end }}
         				</p>
         			</div>
         			<!--.single-room-wrap-->
@@ -125,15 +125,11 @@
 
         				<p class="h5">Hours:</p>
         				<p><span>{{ range .Site.Params.hours }}{{ .days }}: {{ .hours }}<br>{{ end }}</span></p>
-        				<p>
-        					<p>We do not currently offer brewery tours, but stop by our tasting room and get an up-close view of the brewery operations through the glass windows.</p>
+        				{{ range .Site.Params.taproom }}
+                        <p>
+        					<p>{{ .content }}</p>
         				</p>
-        				<p>
-        					<p>The tasting room features {{ .Site.Params.totaltaps }} beers on tap, including some brewery-only releases. Snacks from local vendors are available, as well as bottles of our beer, merchandise and gift certificates.</p>
-        				</p>
-        				<p>
-        					<p>The tasting room is closed on the following holidays: New Year&#8217;s Day, Easter, Memorial Day, July 4th, Labor Day, Thanksgiving, and Christmas Day.</p>
-        				</p>
+                        {{ end }}
         			</div>
         			<!--.single-room-wrap-->
         		</div>
