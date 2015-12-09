@@ -34,53 +34,18 @@
                                 </span>
                             </a>
                         </div>
+        <style>#beer-wrapper .beer-wrapper-interior .single-beer-wrap#{{ .Title | urlize }}:after {
+        background-image: url(../img/beers/slider-{{ .Title | urlize }}.jpg); }
+        #beer-wrapper.gridy .beer-wrapper-interior .single-beer-wrap#{{ .Title | urlize }}:after {
+        background: url(../img/beers/glass-{{ .Title | urlize }}.jpg) center -50% no-repeat;
+        background-size: 160%; }</style>
                         {{ end }}
 
     				</div>
     				<!--end beer wrapper interior -->
     			</div>
     			<!-- end beer wrapper -->
-
     		</div>
-            <div class="beeradvocate-wrapper">
-                <div class="beeradvocate-branding">
-                    <a href="http://www.beeradvocate.com/beer/profile/{{ .Site.Params.beeradvocate }}" target="_blank"><img src="img/logo-beeradvocate.png" alt=""></a>
-                </div>
-
-                <div class="beeradvocate-feed">
-                    <p>Place Score</p>
-                    <p>{{ .Site.Params.baScore }}</p>
-                    <p>{{ .Site.Params.baTitle }}</p>
-                    <p>{{ .Site.Params.baRatings }}+ Reviews</p>
-                </div>
-
-                <div class="beeradvocate-footer">
-                    <span>Data provided by <a href="http://www.beeradvocate.com/beer/profile/{{ .Site.Params.beeradvocate }}" target="_blank">BeerAdvocate</a></span>
-                </div>
-            </div>
-
-
-           <div id="untappd-wrapper" data-breweryid="{{ .Site.Params.untappedID }}">
-                <div id="untappd-branding">
-                    <a href="http://untappd.com/{{ .Site.Params.untappd }}" target="_blank"><img src="img/logo-untappd.png" alt=""></a>
-                </div>
-                <div class="loading-indicator">
-                    <div class="load-wrap">
-                        <div class="cap-wrap">
-                            <div class="ridges"></div>
-                            <div class="top"></div>
-                        </div>
-                        <span>Loading feed</span>
-                    </div>                             
-                </div>
-                <ul id="untappd-feed">
-                    <!-- feed gets placed here -->
-                </ul>
-
-                <div class="untappd-footer">
-                    <span>Data provided by <a href="http://untappd.com/{{ .Site.Params.untappd }}" target="_blank">Untappd</a></span>
-                </div>
-            </div>
     	</section>
 
     	<h1 data-section-id="#friends">Our Friends</h1>
@@ -173,6 +138,45 @@
         			<!--.single-room-wrap-->
         		</div>
         	</div>
+            <div class="beeradvocate-wrapper">
+                <div class="beeradvocate-branding">
+                    <a href="http://www.beeradvocate.com/beer/profile/{{ .Site.Params.beeradvocate }}" target="_blank"><img src="img/logo-beeradvocate.png" alt=""></a>
+                </div>
+
+                <div class="beeradvocate-feed">
+                    <p>Place Score</p>
+                    <p>{{ .Site.Params.baScore }}</p>
+                    <p>{{ .Site.Params.baTitle }}</p>
+                    <p>{{ .Site.Params.baRatings }}+ Reviews</p>
+                </div>
+
+                <div class="beeradvocate-footer">
+                    <span>Data provided by <a href="http://www.beeradvocate.com/beer/profile/{{ .Site.Params.beeradvocate }}" target="_blank">BeerAdvocate</a></span>
+                </div>
+            </div>
+
+
+           <div id="untappd-wrapper" data-venueid="{{ .Site.Params.untappedID }}">
+                <div id="untappd-branding">
+                    <a href="http://untappd.com/{{ .Site.Params.untappd }}" target="_blank"><img src="img/logo-untappd.png" alt=""></a>
+                </div>
+                <div class="loading-indicator">
+                    <div class="load-wrap">
+                        <div class="cap-wrap">
+                            <div class="ridges"></div>
+                            <div class="top"></div>
+                        </div>
+                        <span>Loading feed</span>
+                    </div>                             
+                </div>
+                <ul id="untappd-feed">
+                    <!-- feed gets placed here -->
+                </ul>
+
+                <div class="untappd-footer">
+                    <span>Data provided by <a href="http://untappd.com/{{ .Site.Params.untappd }}" target="_blank">Untappd</a></span>
+                </div>
+            </div>
         </section>
         <h1 data-section-id="#distribution">Our Distribution</h1>
         <section id="distribution" class="sect-distribution selfclear">
@@ -180,7 +184,7 @@
         		<div class="single-distro-wrap">
         			<h2>Pigeon Hill Upcoming Events</h2>
         			<div class="beer-finder">
-        				<a href="#events">
+        				<a href="https://www.facebook.com/{{ .Site.Params.facebook }}/events?key=events">
         					<img src="img/events.png" alt="Events Calendar">
         					<span class="events-ghost"><img src="img/text/take-a-look.png" alt="Take a look"></span>
         				</a>
