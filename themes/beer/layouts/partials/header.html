@@ -27,5 +27,5 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-     {{ if isset .Site.Params "Ganalytics" }}{{ partial "ga.html" . }}{{ end }}
+     {{ if .Site.GoogleAnalytics }}{{ partial "ga.html" . }}{{ end }}
 </head>
