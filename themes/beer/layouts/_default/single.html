@@ -1,0 +1,27 @@
+{{ partial "header.html" . }}
+<body>
+	{{ partial "navbar.html" . }}
+    <div class="site-overlay"></div>
+    <div class="wrapper">
+        <h1 data-section-id="#home" class="youarehere">{{ .Site.Title }}</h1>
+        <section id="{{ .Title | urlize }}" class="selfclear">
+        	<div class="sect-single selfclear">
+        		<div class="size1of1">
+        			<h2>Centered</h2>
+        		</div>
+
+        		<div class="size1of1">
+        			<div class="single-single-wrap selfclear">
+        				<p>
+        					<p>
+                                {{ .Content }}
+        					</p>
+        				</p>
+        			</div>
+        			<!--.single-room-wrap-->
+        		</div>
+        	</div>
+        </section>
+        </div>
+
+        {{ partial "footer.html" . }}
