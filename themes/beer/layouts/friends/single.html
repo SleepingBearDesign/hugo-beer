@@ -29,7 +29,7 @@
         <div class="size1of2 scrolly">
             <h2>{{ .Title }}</h2>
             <p>{{ .Description }}</p>
-            <p><a class="outbound" href="{{ .Params.url }}" target="_blank">Visit their website <span class="caret-prompt">››</span></a></p>
+            <p><a class="outbound" href="{{ .Params.website }}" target="_blank">Visit their website <span class="caret-prompt">››</span></a></p>
             {{ range .Params.images }}
             <img class="" src="img/friends/{{ . }}" alt=""> 
             {{ end }}
