@@ -1,3 +1,12 @@
+	{{ if .Site.Copyright }}
+	<section id="copyright" class="sect-connection selfclear">
+		<div class="size1of1">
+			<div class="single-connection-wrap">
+				<p>{{ .Site.Copyright }}</p>
+			</div>
+		</div>
+	</section>
+	{{ end }}
     <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="js/ThrowPropsPlugin.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min.js"></script>
