@@ -1,21 +1,23 @@
 <div class="masthead-standard">
     <div class="menu-btn"><i class="fa fa-bars"></i></div>
-    <img class="barley" src="img/small-logo-mid.png" alt="">
+    <a href="index.html"><img class="logo" src="img/small-logo-mid.png" alt=""></a>
     <div class="logotype">
         <a href="index.html">
-            <p></p>
+            <p><a href="index.html"></a></p>
         </a>
     </div>
 </div>
 <nav class="pushy pushy-left">
 		<div class="masthead-nav selfclear">
 			<span class="close-btn"><i class="fa fa-times"></i></span>
-			<img class="barley" src="img/small-logo-mid.png" alt="">
+			<a href="index.html"><img class="logo" src="img/small-logo-mid.png" alt=""></a>
 			<div class="logotype">
 				<p><a href="index.html">{{ .Site.Title }}</a></p>
 			</div>
 		</div>
     <h2><a href="index.html">{{ .Site.Title }}</a></h2>
+
+    {{ if eq .Title .Site.Title }}
     <ul class="active-page">
     	<li class="hide-from-nav"><a href="#home">Home</a></li>
     	<li><a href="#beer">Beer</a></li>
@@ -28,4 +30,18 @@
         <li><a href="#visit">Visit Us</a></li>
         <li><a href="http://myshopify.com" target="_blank">Shop</a></li>
     </ul>
+    {{ else }}
+    <ul class="active-page">
+        <li class="hide-from-nav"><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#beer">Beer</a></li>
+        <li class="hide-from-nav"><a href="index.html#friends">Friends</a></li>
+        <li class="hide-from-nav"><a href="index.html#team">Team</a></li>
+        <li class="hide-from-nav"><a href="index.html#instagram">Feed</a></li>
+        <li><a href="index.html#tastingroom">Tasting Room</a></li>
+        <li class="hide-from-nav"><a href="index.html#distribution">Distribution</a></li>
+        <li class="hide-from-nav"><a href="index.html#events">Events</a></li>
+        <li><a href="index.html#visit">Visit Us</a></li>
+        <li><a href="http://myshopify.com" target="_blank">Shop</a></li>
+    </ul>
+    {{ end }}
 </nav>

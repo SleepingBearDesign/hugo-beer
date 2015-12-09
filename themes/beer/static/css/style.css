@@ -770,7 +770,7 @@ a {
     transition: opacity 0.1s ease-in-out; }
     .masthead-standard .logotype p:hover {
       opacity: .6; }
-  .masthead-standard .barley {
+  .masthead-standard .logo {
     float: left;
     height: 48px;
     margin-top: -2px;
@@ -805,7 +805,7 @@ a {
       line-height: 44px;
       padding: 0; }
     .masthead-standard .logotype p,
-    .masthead-standard .barley {
+    .masthead-standard .logo {
       display: none; } }
 /*  Masthead lockup that appears upon opening side nav   
     ------------------------------------------- */
@@ -832,7 +832,7 @@ a {
     transition: opacity 0.1s ease-in-out; }
     .masthead-nav .close-btn:hover {
       opacity: .6; }
-  .masthead-nav .barley {
+  .masthead-nav .logo {
     float: left;
     height: 55px;
     margin-top: 10px;
