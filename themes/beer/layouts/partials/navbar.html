@@ -17,7 +17,7 @@
 		</div>
     <h2><a href="index.html">{{ .Site.Title }}</a></h2>
 
-    {{ if eq .Title .Site.Title }}
+    {{ if .IsHome }}
     <ul class="active-page">
     	<li class="hide-from-nav"><a href="#home">Home</a></li>
     	<li><a href="#beer">Beer</a></li>
