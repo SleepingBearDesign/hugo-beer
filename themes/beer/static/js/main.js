@@ -4,297 +4,246 @@
     var $beerWrapper = $('#beer-wrapper');
     var $beerWrapperInterior = $('.beer-wrapper-interior');
     var $beer = $('.single-beer-wrap');
-	var _beerToggle = $('.toggle-view');
-	var _gridViewOpen = false;
+    var _beerToggle = $('.toggle-view');
+    var _gridViewOpen = false;
     var animating = 0;
     var lastPosition;
     var hoverSide;
-    
-    // change this number to vary speed
+
+    // change to vary speed
     var beersPerSecond = -1000; // in ms
     var winHeight;
     var halfWinHeight;
     var currentElement = $('.section').first();
     var beerSliderThreshold = 750;
-    
-    
-    // STUFF THATH HAPPENS ON LOAD
+
+
+    // ON LOAD
     $win.ready(function() {
-        // age gatin'
-		checkSomeAge();
-		// check for the beer id for feeds
-		checkSomeBeerIDs();
-        checkBreweryID();	
-        checkVenueID();	
-		
-        // initialize som stuff
+        // age gate
+        checkSomeAge();
+        // check for the untappd IDs
+        checkSomeBeerIDs();
+        checkBreweryID();
+        checkVenueID();
+
+        // initialize everything
         init();
-    
+
         // when we scroll call the onscroll function    
-    	$(document).on("scroll", onScroll);
-        
-        
+        $(document).on("scroll", onScroll);
     });
     // END ON LOAD
-    
-     
-    
-    // resize
+
+    // RESIZE
     $win.resize(
-		function(){
-			if(!_gridViewOpen){
-				reset();
-			}
-		}
-	);
-	
-	// checkin yo age
-	function checkSomeAge(){
-		
-		if (!('localStorage' in window)) {
-			window.localStorage = {
-				_data       : {},
-			    setItem     : function(id, val) { return this._data[id] = String(val); },
-			    getItem     : function(id) { return this._data.hasOwnProperty(id) ? this._data[id] : undefined; },
-			    removeItem  : function(id) { return delete this._data[id]; },
-			    clear       : function() { return this._data = {}; }
-			}
-		}
-		
-		var getLocalPath = window.location.pathname;
-		
-		localStorage.setItem("prevPath", getLocalPath);
-		
-		var ageLS = localStorage.getItem('ageVerify');
-		if(true){ //if(ageLS == "true")
-		}
-		else{
-			window.location.href = "/age.php"
-		}
-	}
-    
-    
-    // what happens when you hover on the left side  
-    
+        function() {
+            if (!_gridViewOpen) {
+                reset();
+            }
+        }
+    );
+    // END RESIZE
+
+    // AGE GATE WIP
+    function checkSomeAge() {
+
+        if (!('localStorage' in window)) {
+            window.localStorage = {
+                _data: {},
+                setItem: function(id, val) {
+                    return this._data[id] = String(val);
+                },
+                getItem: function(id) {
+                    return this._data.hasOwnProperty(id) ? this._data[id] : undefined;
+                },
+                removeItem: function(id) {
+                    return delete this._data[id];
+                },
+                clear: function() {
+                    return this._data = {};
+                }
+            }
+        }
+
+        var getLocalPath = window.location.pathname;
+
+        localStorage.setItem("prevPath", getLocalPath);
+
+        var ageLS = localStorage.getItem('ageVerify');
+        if (true) { //if(ageLS == "true")
+        } else {
+            window.location.href = "/age.php"
+        }
+    }
+    // END AGE GATE
+
+
+    // HOVER BEGIN
+    // Hover Left
     function animateLeft() {
-    
+
         animating = 1;
-        
-        // THIS IS WHERE SPEED IS CALCULATED
-        idealSpeed = ($beerWrapperInteriorOffset / beerWidth) * beersPerSecond; // returns in ms    
-        
+
+        idealSpeed = ($beerWrapperInteriorOffset / beerWidth) * beersPerSecond;   
+
         TweenMax.to($beerWrapperInterior, idealSpeed / 1000, {
             left: "0px",
             ease: 'easeOutQuad'
         });
-    
+
         $beer.removeClass('hoverable');
-    
-    
     }
-    
-     
-     
-    
-    // what happens when you hover on the right side
-    
+
+    // Hover Right
     function animateRight() {
-    
+
         animating = 1;
- 
-        
-        // THIS IS WHERE SPEED IS CALCULATED
-        idealSpeed = ((beerWrapperInteriorWidth - beerWrapperWidth + $beerWrapperInteriorOffset) / beerWidth) * -beersPerSecond; // returns in ms
-    
+
+        idealSpeed = ((beerWrapperInteriorWidth - beerWrapperWidth + $beerWrapperInteriorOffset) / beerWidth) * -beersPerSecond;
+
         TweenMax.to($beerWrapperInterior, idealSpeed / 1000, {
             left: -(beerWrapperInteriorWidth - beerWrapperWidth - 85),
             ease: 'easeOutQuad'
         });
-    
+
         $beer.removeClass('hoverable');
-    
+
     }
-    
-     
-     
-    
-    // function to stop the animation
-    
+
+    // Stop Animations
     function stopAnimation() {
-    
+
         animating = 0;
-        //     $beerWrapperInterior.stop();
-    
+
         TweenMax.killAll();
         $beer.addClass('hoverable');
-    
+
     }
-    
-     
-    
-    
-     
-    
-    // page load function
+
+    // Initialize
     function init() {
-		
-		var isGrid = localStorage.getItem("isGriddy");
-		if(isGrid == "true"){
-			_gridViewOpen = true;
-			$('#beer-wrapper').toggleClass('gridy');
-		}
-        
+
+        var isGrid = localStorage.getItem("isGriddy");
+        if (isGrid == "true") {
+            _gridViewOpen = true;
+            $('#beer-wrapper').toggleClass('gridy');
+        }
+
         // make sure the interior beer wrapper is at it's 
         // starting point on load
         $beerWrapperInterior.css({
             left: 0
         });
-    
+
         // size all elements accordingly
-		if(!_gridViewOpen){
-			reset();
-		}
-		
-		// toggle grid touch event
-		_beerToggle.on('click', function(e){
-			$('#beer-wrapper').toggleClass('gridy');
-			if(_gridViewOpen){
-				_gridViewOpen = false;
-				localStorage.setItem("isGriddy", "false");
-				reset();
-			}
-			else if(!_gridViewOpen){
-				_gridViewOpen = true;
-				localStorage.setItem("isGriddy", "true");
-				disableHoverableBeerSection();
-			}
-		})
-    
-    	// click to scroll function
-    	$('a[href^="#"]').on('click', function (e) {
-    
-    		e.preventDefault();
-    		$(document).off("scroll");
-    
-    		$('a').each(function () {
-    			$(this).removeClass('active');
-    		})
-    
-    		$(this).addClass('active');
-    
-    		var target = this.hash;
-    		$target = $(target);
-    
-    		$('html, body').stop().animate({
-    
-    			'scrollTop': $target.offset().top+2
-    
-    		}, 500, 'swing', function () {
-    
-    			window.location.hash = target;
-    			$(document).on("scroll", onScroll);
-    
-    		});
-    
-    	});
-    
-    
+        if (!_gridViewOpen) {
+            reset();
+        }
+
+        // toggle grid touch event
+        _beerToggle.on('click', function(e) {
+            $('#beer-wrapper').toggleClass('gridy');
+            if (_gridViewOpen) {
+                _gridViewOpen = false;
+                localStorage.setItem("isGriddy", "false");
+                reset();
+            } else if (!_gridViewOpen) {
+                _gridViewOpen = true;
+                localStorage.setItem("isGriddy", "true");
+                disableHoverableBeerSection();
+            }
+        })
+
+        // click to scroll function
+        $('a[href^="#"]').on('click', function(e) {
+
+            e.preventDefault();
+            $(document).off("scroll");
+
+            $('a').each(function() {
+                $(this).removeClass('active');
+            })
+
+            $(this).addClass('active');
+
+            var target = this.hash;
+            $target = $(target);
+
+            $('html, body').stop().animate({
+
+                'scrollTop': $target.offset().top + 2
+
+            }, 500, 'swing', function() {
+
+                window.location.hash = target;
+                $(document).on("scroll", onScroll);
+
+            });
+
+        });
+
+
     }
-    
-    
-    // handle all dimension gathering and resizing here
+
+
+    // RESET FUNCTION
     function reset() {
-    
+
         console.log('reset()');
-        
+
         winWidth = $win.width();
         winHeight = $win.height();
-        halfWinHeight = winHeight/2;
-        quarterWinHeight = halfWinHeight/2;
-    
-        // if the beerwrapper exists and the window is greater than 750
-        if ($beerWrapper.length && winWidth > beerSliderThreshold) { 
-            
-            
-			beerWrapperWidth = $beerWrapper.width();
-            beerWrapperOffset = $beerWrapper.offset().left;
-			
-            //beerWidth = $beer.outerWidth();
+        halfWinHeight = winHeight / 2;
+        quarterWinHeight = halfWinHeight / 2;
 
-			beerWidth = $beer.width();
-			
-			
-			/*if(beerWidth!=315){
-				beerWidth = 270;
-			}*/
-        
+        // if the beerwrapper exists and the window is greater than 750
+        if ($beerWrapper.length && winWidth > beerSliderThreshold) {
+
+
+            beerWrapperWidth = $beerWrapper.width();
+            beerWrapperOffset = $beerWrapper.offset().left;
+
+            beerWidth = $beer.width();
+
             // set the width of the interior to the width of all the beer items
-            
+
             if (!Modernizr.touch) {
-                
                 $beerWrapperInterior.css({
-            
                     width: beerWidth * $beer.length + 85
-            
                 });
-                
-                
             } else {
-                
                 $beerWrapperInterior.css({
-            
                     width: beerWidth * $beer.length
-            
                 });
-                
             }
-        
+
             beerWrapperInteriorWidth = $beerWrapperInterior.width();
             $beerWrapperInteriorOffset = $beerWrapperInterior.offset().left - beerWrapperOffset;
-            
-        }
-        
-        else if ($beerWrapper.length && winWidth < beerSliderThreshold) {
-            
-            console.log('small screen') 
-            
-            $('#beer-wrapper').addClass('static-finder')           
-            
-        }
-        
 
-        // IF not touch
-        if (!Modernizr.touch) {
-        
-            console.log ('not touch and windows greater than 750')
-            initializeHoverableBeerSection();
-            
+        } else if ($beerWrapper.length && winWidth < beerSliderThreshold) {
+            console.log('small screen');
+
+            $('#beer-wrapper').addClass('static-finder');
         }
-        
-        
-        // if touch and window greater than 750
+
+        // No Tough
+        if (!Modernizr.touch) {
+            console.log('not touch and windows greater than 750');
+            initializeHoverableBeerSection();
+        }
+        // Touch Screens > 750px
         else if (Modernizr.touch && winWidth > beerSliderThreshold) {
-            
-            console.log ('touch and windows greater than 750')
+            console.log('touch and windows greater than 750');
             initializeDraggableBeerSection();
-        
-        }        
-        
-        
-        
-        
-        
-        
-    
+        }
     }
 
-
- 
-    // function for desktop to track navigation of slides
+    // Desktop Scrolls
     function onScroll(event) {
-    
+
         // this is how far you've scrolled from the top
-        scrollPosition = $(document).scrollTop(); 
+        scrollPosition = $(document).scrollTop();
 
         // for each of the slide nav elements
         $('nav ul.active-page li a').each(function() {
@@ -302,8 +251,8 @@
             var currentLink = $(this); // returns <a href="#test"></a>
             var currentLinkHREF = currentLink.attr('href'); // returns #test
             var refElement = $(currentLinkHREF); // returns $('#test')
-            var quarterWinHeight = $win.height()/4;
-            
+            var quarterWinHeight = $win.height() / 4;
+
             // check to see if the top of $('#test') is at browser top
             // if it is update the slide nav
             if (refElement.position().top - quarterWinHeight <= scrollPosition && refElement.position().top + quarterWinHeight > scrollPosition) {
@@ -313,18 +262,18 @@
 
                     // remove current active class
                     $('nav ul li a').removeClass("active");
-                    
+
                     // add new active class
                     currentLink.addClass("active");
-                    
-					$('h1').removeClass("youarehere");
-					$('*[data-section-id="' + currentLinkHREF +'"]').addClass('youarehere');
-                    
+
+                    $('h1').removeClass("youarehere");
+                    $('*[data-section-id="' + currentLinkHREF + '"]').addClass('youarehere');
+
                     // set the currentElement to the new refelement
                     currentElement = refElement;
-                    
+
                     console.log("refelemnt has changed update classes");
-                    
+
                 }
             }
 
@@ -333,8 +282,8 @@
     } // end onScroll
 
 
-     // INSTAGRAM FEED
-    if ( $('#instafeed').length ) {
+    // INSTAGRAM FEED
+    if ($('#instafeed').length) {
         var feed = new Instafeed({
             get: 'user',
             userId: 809574210,
@@ -345,375 +294,330 @@
         });
         feed.run();
     }
-	
-	function disableHoverableBeerSection(){
-		stopAnimation();
-		$beerWrapper.unbind("mouseenter");
-		$beerWrapper.unbind("mouseleave");
-		$beerWrapper.unbind("mousemove");
-		$('.hoverable').unbind('mouseover');
+    // END INSTAGRAM
+
+    // HOVERABLE
+    function disableHoverableBeerSection() {
+        stopAnimation();
+        $beerWrapper.unbind("mouseenter");
+        $beerWrapper.unbind("mouseleave");
+        $beerWrapper.unbind("mousemove");
+        $('.hoverable').unbind('mouseover');
         $beerWrapperInterior.css({
-    
+
             width: 'auto',
-			left: 0
-    
+            left: 0
+
         });
-	}
-
-
+    }
 
     function initializeHoverableBeerSection() {
-		if(!_gridViewOpen){
+        if (!_gridViewOpen) {
             // hover over beer section
             $beerWrapper.mouseenter(function() {
-				
 
-        
                 // track the mouse position
                 $(this).mousemove(function(e) {
-                    
-                    
-                    if (winWidth > beerSliderThreshold) {            
-                        
+
+                    if (winWidth > beerSliderThreshold) {
+
                         $beerWrapperInteriorOffset = Math.round($beerWrapperInterior.offset().left - beerWrapperOffset);
-            
+
                         // store the most position
                         mousemoveX = e.clientX - beerWrapperOffset;
-            
+
                         // TRACK HOVER POSITION
                         // if we hover over the left side
                         if (mousemoveX < beerWrapperWidth * .333) {
                             hoverSide = 'left';
                         }
-            
+
                         // if we hover over the right side
                         else if (mousemoveX > beerWrapperWidth * .666) {
                             hoverSide = 'right';
                         }
-            
+
                         // if we're in the middle
                         else {
                             hoverSide = 'middle';
                         }
-            
+
                         // WHAT HAPPENS WHEN WE HOVER OVER A CERTAIN SECTION
-            
+
                         if (hoverSide === 'left') {
-                           
+
                             // if the last position is greater than the curreposition
                             // and the page is not currently animating
                             // and the interior offset is not 0 or greater
                             if (lastPosition - mousemoveX > 0 && animating === 0 && !($beerWrapperInteriorOffset >= 0)) {
                                 animateLeft();
                             }
-            
-            
+
                             // else if the last position is small ther then current position
                             // the page is animating
                             // and the interior offset is not greater than or equal to zero
                             else if (lastPosition - mousemoveX < 0 && animating === 1 && !($beerWrapperInteriorOffset >= 0)) {
                                 stopAnimation();
                             }
-            
+
                         } else if (hoverSide === 'right') {
-							
-            
+
                             if (lastPosition - mousemoveX < 0 && animating === 0 && !($beerWrapperInteriorOffset <= -(beerWrapperInteriorWidth - beerWrapperWidth))) {
-            
+
                                 animateRight();
-            
+
                             } else if (lastPosition - mousemoveX > 0 && animating === 1 && !($beerWrapperInteriorOffset <= -(beerWrapperInteriorWidth - beerWrapperWidth))) {
-            
-            
+
                                 stopAnimation();
-            
                             }
-            
                         }
-            
-            
+
                         $('.mousemoveX').html(mousemoveX);
                         $('.lastPosition').html(lastPosition);
-            
+
                         lastPosition = mousemoveX;
                     }
-        
                 });
-                
+
                 // increase the size of the wrapper so we can handle exapanding the divs on hover
                 // assuming only one 
                 $('.hoverable').mouseover(function() {
-                    
-                    
+
                     if (winWidth > beerSliderThreshold) {
-                       
+
                         $beerWrapperInterior.css({
                             width: beerWidth * $beer.length + 85
                         });
-                    
                     }
-                    
                 });
-                                
             });
-		} //----end _gridViewOpen
-        
-         
-        
-            $beerWrapper.mouseleave(function() {
-                
-                if (winWidth > beerSliderThreshold) {
-                    
-                    if (animating == 1) {
-                        stopAnimation();
-                    }
-            
-                    
+        } //----end _gridViewOpen
+
+        $beerWrapper.mouseleave(function() {
+
+            if (winWidth > beerSliderThreshold) {
+
+                if (animating == 1) {
+                    stopAnimation();
                 }
-                
-        
-            });
-            
-            
-            
-            
-                
-                
-    } // end hoverable
+            }
+        });
+    }
+    // END HOVERABLE
 
-
+    //DRAGGABLE
     function initializeDraggableBeerSection() {
-        
-    
-        console.log('touch and big window')
-        
+
+        console.log('touch and big window');
+
         $('.single-beer-wrap').removeClass('hoverable');
-    
+
         Draggable.create($beerWrapperInterior, {
-    
+
             type: "x",
             throwProps: true,
             bounds: "#beer-wrapper",
             edgeResistance: 0.65,
             dragClickables: true
         });
-    
-        
-    } // end draggable
-
-
-
-
-
-
-// UNTAPPD
-	
-var checkinsArray = [];
-var beerID = 1234; // this needs to be updated for each page
-var breweryID = 117201; // Pigeon Hill Brewery
-var venueID = 1405081; // Pigeon Hill Brewery
-var todaysDate = moment().format('MMMM Do');
-var currentTime = moment().format('h:mm a');
-var yesterdaysDate = moment().subtract(1, 'days').format('MMMM Do');
-	
-function checkSomeBeerIDs(){
-	if(typeof $('#untappd-wrapper').data("beerid") !== "undefined"){
-		beerID = $('#untappd-wrapper').data("beerid");
-		createUntapped(beerID, "beer");
-	}
-}
-
-function checkBreweryID(){
-    if(typeof $('#untappd-wrapper').data("breweryid") !== "undefined"){
-        breweryID = $('#untappd-wrapper').data("breweryid");
-        createUntapped(breweryID, "brewery");
     }
-}
+    // END DRAGGABLE
 
-function checkVenueID(){
-    if(typeof $('#untappd-wrapper').data("venueid") !== "undefined"){
-        venueID = $('#untappd-wrapper').data("venueid");
-        createUntapped(venueID, "venue");
+    // UNTAPPD
+    var checkinsArray = [];
+    var beerID = 1234; // this needs to be updated for each page
+    var breweryID = 117201; // Pigeon Hill Brewery
+    var venueID = 1405081; // Pigeon Hill Brewery
+    var todaysDate = moment().format('MMMM Do');
+    var currentTime = moment().format('h:mm a');
+    var yesterdaysDate = moment().subtract(1, 'days').format('MMMM Do');
+
+    function checkSomeBeerIDs() {
+        if (typeof $('#untappd-wrapper').data("beerid") !== "undefined") {
+            beerID = $('#untappd-wrapper').data("beerid");
+            createUntapped(beerID, "beer");
+        }
     }
-}
 
-function createUntapped(uid, utype){
-    $.getJSON("/untappd-cache/request.php?uid=" + uid + "&utype=" + utype, function(data) {
+    function checkBreweryID() {
+        if (typeof $('#untappd-wrapper').data("breweryid") !== "undefined") {
+            breweryID = $('#untappd-wrapper').data("breweryid");
+            createUntapped(breweryID, "brewery");
+        }
+    }
 
-        jsonCall(data);
+    function checkVenueID() {
+        if (typeof $('#untappd-wrapper').data("venueid") !== "undefined") {
+            venueID = $('#untappd-wrapper').data("venueid");
+            createUntapped(venueID, "venue");
+        }
+    }
 
-    }).fail(function(d, textStatus, error) {
-        // in case the json fails for some reason display some error messages
-        console.log("getJSON failed, status: " + textStatus + ", error: " + error);
-        console.log(d);
+    function createUntapped(uid, utype) {
+        $.getJSON("/untappd-cache/request.php?uid=" + uid + "&utype=" + utype, function(data) {
 
-    }); // end jsonp call
-    
+            jsonCall(data);
 
-    var jsonCall = function(data) {
-        // when the json is returned store the level we want to grab info from
-        var checkInData = data.response.checkins.items;
+        }).fail(function(d, textStatus, error) {
+            // in case the json fails for some reason display some error messages
+            console.log("getJSON failed, status: " + textStatus + ", error: " + error);
+            console.log(d);
 
-        // go through each of the sets of data
-        $.each(checkInData, function(i) {
+        }); // end jsonp call
 
-            //create an array to store the info we need         
-            checkinArray = {
-                beer: checkInData[i].beer.beer_name,
-                firstName: checkInData[i].user.first_name,
-                lastName: checkInData[i].user.last_name,
-                photo: checkInData[i].user.user_avatar,
-                date: checkInData[i].created_at,
-                time: checkInData[i].created_at,
-                venue: checkInData[i].venue.venue_name,
-                rating: checkInData[i].rating_score
-            };
 
-            // push this array to the global array to access later
-            checkinsArray.push(checkinArray);
+        var jsonCall = function(data) {
+            // when the json is returned store the level we want to grab info from
+            var checkInData = data.response.checkins.items;
+
+            // go through each of the sets of data
+            $.each(checkInData, function(i) {
+
+                //create an array to store the info we need         
+                checkinArray = {
+                    beer: checkInData[i].beer.beer_name,
+                    firstName: checkInData[i].user.first_name,
+                    lastName: checkInData[i].user.last_name,
+                    photo: checkInData[i].user.user_avatar,
+                    date: checkInData[i].created_at,
+                    time: checkInData[i].created_at,
+                    venue: checkInData[i].venue.venue_name,
+                    rating: checkInData[i].rating_score
+                };
+
+                // push this array to the global array to access later
+                checkinsArray.push(checkinArray);
+            });
+
+            // once we do all that call the function to display the HTML on the page        
+            outputHTML();
+        };
+
+        // create a function to display HTML from the UNTAPPD feed
+        var outputHTML = function() {
+
+            // go through each of the arrays in the checkinsArray object
+            for (i = 0; i < checkinsArray.length; i++) {
+
+                // store the info we need with the associated HTML
+                avatar = '<div class = "avatar"><img src = "' + checkinsArray[i].photo + '"/></div>';
+                name = checkinsArray[i].firstName + ' ' + checkinsArray[i].lastName;
+                venue = '';
+                date = moment(checkinsArray[i].date).format('MMMM Do');
+                time = moment().format('h:mm a');
+                rating = '';
+
+                // if the date of the post matches todays date
+                if (date === todaysDate) {
+
+                    date = '<p class = "time">' + moment(checkinsArray[i].date).fromNow(true) + ' ago</p>';
+                    beer = ' is drinking a <a href = "https://untappd.com/beer/' + beerID + '" target = "_blank">' + checkinsArray[i].beer + '</a>';
+
+                }
+
+                // if the date of the post matches yesterdays date
+                else if (date === yesterdaysDate) {
+                    date = '<p class = "time"> Yesterday at ' + time + '</p>';
+                    beer = 'was drinking a <a href = "https://untappd.com/beer/' + beerID + '" target = "_blank">' + checkinsArray[i].beer + '</a>';
+                }
+
+                // if the date of the post doens't match yesterday or todays
+                else {
+                    date = '<p class = "time">' + date + ' at ' + time + '</p>';
+                    beer = 'was drinking a <a href = "https://untappd.com/beer/' + beerID + '" target = "_blank">' + checkinsArray[i].beer + '</a>';
+                }
+
+                // if the venue is defined
+                if (checkinsArray[i].venue !== undefined) {
+                    venue = ' at ' + checkinsArray[i].venue;
+                }
+
+                // if the rating is defined
+                if (checkinsArray[i].rating != '0') {
+                    rating = '<div class = "stars stars-' + checkinsArray[i].rating.toString().replace('.', '') + '"></div>';
+                }
+
+                // append the html to the UL
+                $('#untappd-feed').append('<li class = "post">' + avatar + '<div class = "user-info"><p> ' + name + beer + venue + '</p>' + rating + date + '</div><div class = "clear"></div></li>');
+            }
+        };
+    }
+    // END UPTAPPD
+
+    // TOOLTIPSY
+    $(function() {
+        $('.no-touch .go-left .link-tip').tooltipsy({
+            alignTo: 'element',
+            offset: [.1, 0],
+            delay: 0,
+            css: {
+                'margin-top': '-15px',
+                'margin-left': '-55px'
+            },
+            show: function(e, $el) {
+                $el.css({
+                    'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) + 10 + 'px',
+                    'opacity': '0.0',
+                    'display': 'block'
+                }).animate({
+                    'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) - 10 + 'px',
+                    'opacity': '1.0'
+                }, 300);
+            },
+            hide: function(e, $el) {
+                $el.css({
+                    'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) + 0 + 'px',
+                    'opacity': '1.0',
+                }).animate({
+                    'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) + 3 + 'px',
+                    'opacity': '0.0'
+                }, 100);
+            }
         });
 
-        // once we do all that call the function to display the HTML on the page        
-        outputHTML();
-    };
-
-	// create a function to display HTML from the UNTAPPD feed
-	var outputHTML = function() {
-
-	    // go through each of the arrays in the checkinsArray object
-	    for (i = 0; i < checkinsArray.length; i++) {
-
-	        // store the info we need with the associated HTML
-	        avatar = '<div class = "avatar"><img src = "' + checkinsArray[i].photo + '"/></div>';
-	        name = checkinsArray[i].firstName + ' ' + checkinsArray[i].lastName;
-	        venue = '';
-	        date = moment(checkinsArray[i].date).format('MMMM Do');
-	        time = moment().format('h:mm a');
-	        rating = '';
-
-	        // if the date of the post matches todays date
-	        if (date === todaysDate) {
-
-	            date = '<p class = "time">' + moment(checkinsArray[i].date).fromNow(true) + ' ago</p>';
-	            beer = ' is drinking a <a href = "https://untappd.com/beer/' + beerID + '" target = "_blank">' + checkinsArray[i].beer + '</a>';
-
-	        }
-
-	        // if the date of the post matches yesterdays date
-	        else if (date === yesterdaysDate) {
-	            date = '<p class = "time"> Yesterday at ' + time + '</p>';
-	            beer = 'was drinking a <a href = "https://untappd.com/beer/' + beerID + '" target = "_blank">' + checkinsArray[i].beer + '</a>';
-	        }
-
-	        // if the date of the post doens't match yesterday or todays
-	        else {
-	            date = '<p class = "time">' + date + ' at ' + time + '</p>';
-	            beer = 'was drinking a <a href = "https://untappd.com/beer/' + beerID + '" target = "_blank">' + checkinsArray[i].beer + '</a>';
-	        }
-
-	        // if the venue is defined
-	        if (checkinsArray[i].venue !== undefined) {
-	            venue = ' at ' + checkinsArray[i].venue;
-	        }
-
-	        // if the rating is defined
-	        if (checkinsArray[i].rating != '0') {
-	            rating = '<div class = "stars stars-' + checkinsArray[i].rating.toString().replace('.', '') + '"></div>';
-	        }
-
-	        // append the html to the UL
-	        $('#untappd-feed').append('<li class = "post">' + avatar + '<div class = "user-info"><p> ' + name + beer + venue + '</p>' + rating + date + '</div><div class = "clear"></div></li>');
-
-	    }
-
-
-	};
-}
-
-// peeper
-// https://api.untappd.com/v4/beer/checkins/13088
-// https://untappd.com/brewery/117201
-// END UPTAPPD
-
-
-// TOOLTIPSY
-$(function() {
-
-    $('.no-touch .go-left .link-tip').tooltipsy({
-        alignTo: 'element',
-        offset: [.1, 0],
-        delay: 0,
-        css: { 
-            'margin-top': '-15px',
-            'margin-left': '-55px'
-        },
-        show: function (e, $el) {
-            $el.css({
-                'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) + 10 + 'px',
-                'opacity': '0.0',
-                'display': 'block'
-            }).animate({
-                'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) - 10 + 'px',
-                'opacity': '1.0'
-            }, 300);
-        },
-        hide: function (e, $el) {
-            $el.css({
-                'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) + 0 + 'px',
-                'opacity': '1.0',
-            }).animate({
-                'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) + 3 + 'px',
-                'opacity': '0.0'
-            }, 100);
-        }
+        $('.no-touch .go-right .link-tip').tooltipsy({
+            alignTo: 'element',
+            offset: [-.1, 0],
+            delay: 0,
+            css: {
+                'margin-top': '-15px',
+                'margin-right': '-55px',
+                'text-align': 'right'
+            },
+            show: function(e, $el) {
+                $el.css({
+                    'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) - 10 + 'px',
+                    'opacity': '0.0',
+                    'display': 'block'
+                }).animate({
+                    'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) + 10 + 'px',
+                    'opacity': '1.0'
+                }, 300);
+            },
+            hide: function(e, $el) {
+                $el.css({
+                    'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) + 0 + 'px',
+                    'opacity': '1.0',
+                }).animate({
+                    'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) - 3 + 'px',
+                    'opacity': '0.0'
+                }, 100);
+            }
+        });
     });
+    // END TOOLTIPSY
 
-    $('.no-touch .go-right .link-tip').tooltipsy({
-        alignTo: 'element',
-        offset: [-.1, 0],
-        delay: 0,
-        css: { 
-            'margin-top': '-15px',
-            'margin-right': '-55px',
-            'text-align': 'right'
-        },
-        show: function (e, $el) {
-            $el.css({
-                'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) - 10 + 'px',
-                'opacity': '0.0',
-                'display': 'block'
-            }).animate({
-                'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) + 10 + 'px',
-                'opacity': '1.0'
-            }, 300);
-        },
-        hide: function (e, $el) {
-            $el.css({
-                'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) + 0 + 'px',
-                'opacity': '1.0',
-            }).animate({
-                'left': parseInt($el[0].style.left.replace(/[a-z]/g, '')) - 3 + 'px',
-                'opacity': '0.0'
-            }, 100);
-        }
-    });
-});	
-// END TOOLTIPSY
-
-
-
-// GOOGLE MAP
+    // GOOGLE MAP
     var infowindow = null;
-    
-    $(document).ready(function () {
+
+    $(document).ready(function() {
         initialize();
     });
-    
-    
+
     function initialize() {
-    
-        var centerMap = new google.maps.LatLng(43.2339556,-86.2556952);
-    
+
+        var centerMap = new google.maps.LatLng(43.2339556, -86.2556952);
+
         var styles = [{
             "featureType": "administrative",
             "elementType": "all",
@@ -758,7 +662,7 @@ $(function() {
             "elementType": "geometry",
             "stylers": [{ // major highway - gray
                 "color": "#c5c6c6"
-    
+
             }]
         }, {
             "featureType": "road.arterial",
@@ -789,7 +693,7 @@ $(function() {
                 "color": "#494657"
             }]
         }];
-    
+
         var mapOptions = {
             backgroundColor: "#f5f4ef",
             center: centerMap,
@@ -808,15 +712,15 @@ $(function() {
                 style: google.maps.ZoomControlStyle.SMALL
             }
         }
-    
+
         var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-    
+
         var styledMapType = new google.maps.StyledMapType(styles, {
             name: 'Styled'
         });
-    
+
         map.mapTypes.set('Styled', styledMapType);
-    
+
         setMarkers(map, sites);
         infowindow = new google.maps.InfoWindow({
             content: "loading..."
@@ -824,7 +728,7 @@ $(function() {
     }
 
     var sites = [
-        ['PH Brewing Co.', 43.2339556,-86.2556952]
+        ['PH Brewing Co.', 43.2339556, -86.2556952]
     ];
 
     function setMarkers(map, markers) {
@@ -840,9 +744,4 @@ $(function() {
             });
         }
     }
-// END GOOGLE MAP
-
-
-
-
-
+    // END GOOGLE MAP
