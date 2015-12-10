@@ -45,6 +45,39 @@
     );
     // END RESIZE
 
+    // AGE GATE WIP
+    function checkSomeAge() {
+
+        if (!('localStorage' in window)) {
+            window.localStorage = {
+                _data: {},
+                setItem: function(id, val) {
+                    return this._data[id] = String(val);
+                },
+                getItem: function(id) {
+                    return this._data.hasOwnProperty(id) ? this._data[id] : undefined;
+                },
+                removeItem: function(id) {
+                    return delete this._data[id];
+                },
+                clear: function() {
+                    return this._data = {};
+                }
+            }
+        }
+
+        var getLocalPath = window.location.pathname;
+
+        localStorage.setItem("prevPath", getLocalPath);
+
+        var ageLS = localStorage.getItem('ageVerify');
+        if (ageLS == "true") { 
+            $( '#age-gate-overlay-wrap' ).css('display', 'none');
+        }
+    }
+    // END AGE GATE
+
+
     // HOVER BEGIN
     // Hover Left
     function animateLeft() {

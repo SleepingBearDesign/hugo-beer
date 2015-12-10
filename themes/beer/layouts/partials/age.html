@@ -15,14 +15,8 @@ jQuery( document ).ready( function( $ ) {
 		
 		$( '#age-gate-overlay-wrap' ).fadeOut( 400 );
 		
-		$.cookie( 'age-verified', '1', { expires: 1, path: '/' } );
-		
+		localStorage.setItem('ageVerify', "true");
 	} );
-	
-	if (window.location.href.indexOf("?app") > -1) {
-		$( '#age-gate-overlay-wrap' ).css('display', 'none');
-    	$.cookie('app-verified', '1', { expires: 1, path: '/' } );
-	}
 } );
 </script>
 <style type="text/css">
