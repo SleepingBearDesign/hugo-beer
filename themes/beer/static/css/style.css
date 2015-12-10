@@ -433,11 +433,7 @@ a {
   margin-bottom: 44px;
   width: 55%; }
 
-.hero-them .hero-quote {
-  margin-top: 160px;
-  -webkit-box-shadow: 0 0 25px 30px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 50px 30px rgba(0, 0, 0, 0.1);
-  background: rgba(0, 0, 0, 0.1); }
+
 
 .hero-quote-author,
 .hero-quote-author a {
@@ -454,10 +450,7 @@ a {
   .hero-quote {
     font-size: 40px;
     line-height: 44px;
-    width: 70%; }
-
-  .hero-them .hero-quote {
-    margin-top: 110px; } }
+    width: 70%; } }
 @media screen and (max-width: 700px) {
   .hero-quote {
     font-size: 30px;
@@ -470,10 +463,6 @@ a {
     line-height: 29px;
     margin-bottom: 22px;
     width: 85%; }
-
-  .hero-them .hero-quote {
-    margin-top: 70px; }
-
   .hero-quote-author,
   .hero-quote-author a {
     font-size: 18px; } }
@@ -1555,8 +1544,6 @@ body.choice .wrap-selection {
     top: 40%; }
   .sect-hero.hero-us {
     background-image: url("../img/hero-beer-ph.jpg"); }
-  .sect-hero.hero-them {
-    background-image: url("../img/hero-them.jpg"); }
   .sect-hero.hero-aaron, .sect-hero.hero-assured, .sect-hero.hero-bangs, .sect-hero.hero-derifarm, .sect-hero.hero-nedistilling, .sect-hero.hero-garbage {
     margin-top: 0;
     padding-bottom: 45%; }
