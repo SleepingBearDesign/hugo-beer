@@ -2,23 +2,7 @@
 	<div id="age-gate-overlay">
 		<img class="age-gate-logo" src="img/age-gate-logo.png">
 		<h2>Are you at least 21 years old?</h2>
-		<a href="?age-gate=c528c72dfc" class="accept btn btn-large">Yes</a>
+		<a href="#" class="accept btn btn-large">Yes</a>
 		<a href="http://www.tacospin.com/" class="reject btn btn-large">No</a>
 	</div>
 </div>
-<script type="text/javascript">
-jQuery( document ).ready( function( $ ) {
-	
-	$( document ).on( 'click', '#age-gate-overlay-wrap .accept', function( e ) {
-		
-		e.preventDefault();
-		
-		$( '#age-gate-overlay-wrap' ).fadeOut( 400 );
-		
-		localStorage.setItem('ageVerify', "true");
-	} );
-} );
-</script>
-<style type="text/css">
-
-</style>

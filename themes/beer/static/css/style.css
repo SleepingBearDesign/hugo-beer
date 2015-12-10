@@ -3727,7 +3727,7 @@ body.lone-tenet .sticky {
 ------------------------------------------------------------------------------------------------------------------------------*/
 #age-gate-overlay-wrap { 
   background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
-    display: block;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;

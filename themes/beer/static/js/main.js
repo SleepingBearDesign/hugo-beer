@@ -71,9 +71,18 @@
         localStorage.setItem("prevPath", getLocalPath);
 
         var ageLS = localStorage.getItem('ageVerify');
-        if (ageLS == "true") { 
-            $( '#age-gate-overlay-wrap' ).css('display', 'none');
+        if (ageLS != "true") { 
+            $( '#age-gate-overlay-wrap' ).css('display', 'block');
         }
+
+        $( document ).on( 'click', '#age-gate-overlay-wrap .accept', function( e ) {
+        
+        e.preventDefault();
+        
+        $( '#age-gate-overlay-wrap' ).fadeOut( 400 );
+        
+        localStorage.setItem('ageVerify', "true");
+    } );
     }
     // END AGE GATE
 
