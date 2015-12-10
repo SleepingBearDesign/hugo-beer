@@ -118,7 +118,6 @@ img {
 /*----------------------------------------------------------------------------------------------------------------------------
     TYPOGRAPHY
 ------------------------------------------------------------------------------------------------------------------------------*/
-/** * @license * MyFonts Webfont Build ID 2956762, 2015-01-20T13:38:50-0500 * * The fonts listed in this notice are subject to the End User License * Agreement(s) entered into by the website owner. All other parties are * explicitly restricted from using the Licensed Webfonts(s). * * You may obtain a valid license at the URLs below. * * Webfont: NewsGothicDmBT-Reg by ParaType * URL: http://www.myfonts.com/fonts/paratype/news-gothic/demi/ * Copyright: Copyright 1990-2003 Bitstream Inc. Partial Copyright ParaType Inc. 2008. All rights reserved. * Licensed pageviews: 10,000 * * Webfont: NewsGothicBT-Reg by ParaType * URL: http://www.myfonts.com/fonts/paratype/news-gothic/regular/ * Copyright: Copyright 1990-2003 Bitstream Inc. Partial Copyright ParaType Inc. 2008. All rights reserved. * Licensed pageviews: 10,000 * * Webfont: NewsGothicBdBT-Reg by ParaType * URL: http://www.myfonts.com/fonts/paratype/news-gothic/bold/ * Copyright: Copyright 1990-2003 Bitstream Inc. Partial Copyright ParaType Inc. 2008. All rights reserved. * Licensed pageviews: 10,000 * * Webfont: NewsGothicLtBT-Reg by ParaType * URL: http://www.myfonts.com/fonts/paratype/news-gothic/light/ * Copyright: Copyright 1990-2003 Bitstream Inc. Partial Copyright ParaType Inc. 2008. All rights reserved. * Licensed pageviews: 10,000 * * Webfont: NewsGothicLtBT-It by ParaType * URL: http://www.myfonts.com/fonts/paratype/news-gothic/light-italic/ * Copyright: Copyright 1990-2003 Bitstream Inc. Partial Copyright ParaType Inc. 2008. All rights reserved. * Licensed pageviews: 10,000 * * Webfont: BaskervilleMTPro-Regular by Monotype * URL: http://www.myfonts.com/fonts/mti/baskerville-mt/pro-roman/ * Copyright: Font software Copyright 1994 Adobe Systems Incorporated. All rights reserved. Typeface designs Copyright 1994 The Monotype Corporation. All rights reserved. * Licensed pageviews: 250,000 * * Webfont: BaskervilleMTPro-Semibold by Monotype * URL: http://www.myfonts.com/fonts/mti/baskerville-mt/pro-semi-bold/ * Copyright: Font software Copyright 1994 Adobe Systems Incorporated. All rights reserved. Typeface designs Copyright 1994 The Monotype Corporation. All rights reserved. * Licensed pageviews: 250,000 * * * License: http://www.myfonts.com/viewlicense?type=web&buildid=2956762 * * © 2015 MyFonts Inc*/
 @font-face {
   font-family: 'NewsGothicDmBT-Reg';
   src: url("../webfonts/2D1DDA_0_0.eot");
@@ -851,22 +850,6 @@ a {
       .masthead-nav .logotype p a {
         font-size: 18px;
         line-height: 16px; } }
-/*----------------------------------------------------------------------------------------------------------------------------
-    AGEGATE RESTRICTIONS FROM BEING ABLE TO CLICK THROUGH OTHER THAN NO/YES
-------------------------------------------------------------------------------------------------------------------------------*/
-#agegate .menu-btn {
-  color: #dddcd1;
-  cursor: default !important; }
-
-#agegate .logotype a {
-  cursor: default !important; }
-
-#agegate .wrap-bg {
-  background: url("../img/bg-blackfog.png") center 0 no-repeat, url("../img/bg-hops.jpg") center 0 no-repeat;
-  background-size: contain; }
-
-#agegate {
-  background: url("../img/bg-blackfog.png") 0 0 repeat; }
 
 /*----------------------------------------------------------------------------------------------------------------------------
     ACCOUNT FOR FIXED HEADER HEIGHT WHEN SCROLLING TO AREA
@@ -1544,29 +1527,6 @@ body.choice .wrap-selection {
     top: 40%; }
   .sect-hero.hero-us {
     background-image: url("../img/hero-beer-ph.jpg"); }
-  .sect-hero.hero-aaron, .sect-hero.hero-assured, .sect-hero.hero-bangs, .sect-hero.hero-derifarm, .sect-hero.hero-nedistilling, .sect-hero.hero-garbage {
-    margin-top: 0;
-    padding-bottom: 45%; }
-  .sect-hero.hero-aaron {
-    background-image: url("../img/them/staples-hero.jpg"); }
-  .sect-hero.hero-assured {
-    background-image: url("../img/them/assured-hero.jpg"); }
-  .sect-hero.hero-bangs {
-    background-image: url("../img/them/bangs-hero.jpg"); }
-  .sect-hero.hero-derifarm {
-    background-image: url("../img/them/deri-hero.jpg"); }
-  .sect-hero.hero-nedistilling {
-    background-image: url("../img/them/ned-hero.jpg"); }
-  .sect-hero.hero-garbage {
-    background-image: url("../img/them/garbage-hero.jpg"); }
-
-@media screen and (max-width: 700px) {
-  .sect-hero.hero-aaron, .sect-hero.hero-assured, .sect-hero.hero-bangs, .sect-hero.hero-derifarm, .sect-hero.hero-nedistilling, .sect-hero.hero-garbage {
-    background-image: none;
-    background-color: #f5f4ef;
-    padding-top: 2.9%;
-    padding-bottom: 0;
-    margin-bottom: -1.4%; } }
 @media screen and (max-width: 900px) {
   .sect-hero {
     margin-top: 78px; } }
@@ -2331,8 +2291,6 @@ body.lone-tenet .sticky {
           display: none; }
     #beer-wrapper .beer-wrapper-interior .single-beer-wrap:after #beer-wrapper .beer-wrapper-interior .single-beer-wrap:last-child {
       display: none; }
-    #beer-wrapper .beer-wrapper-interior .single-beer-wrap:after {
-      background: #fff; }
     #beer-wrapper .beer-wrapper-interior .single-beer-wrap#another-one:after {
       background: #f5bf03; }
     #beer-wrapper .beer-wrapper-interior .single-beer-wrap#dinner:after {

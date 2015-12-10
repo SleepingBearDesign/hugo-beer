@@ -45,40 +45,6 @@
     );
     // END RESIZE
 
-    // AGE GATE WIP
-    function checkSomeAge() {
-
-        if (!('localStorage' in window)) {
-            window.localStorage = {
-                _data: {},
-                setItem: function(id, val) {
-                    return this._data[id] = String(val);
-                },
-                getItem: function(id) {
-                    return this._data.hasOwnProperty(id) ? this._data[id] : undefined;
-                },
-                removeItem: function(id) {
-                    return delete this._data[id];
-                },
-                clear: function() {
-                    return this._data = {};
-                }
-            }
-        }
-
-        var getLocalPath = window.location.pathname;
-
-        localStorage.setItem("prevPath", getLocalPath);
-
-        var ageLS = localStorage.getItem('ageVerify');
-        if (true) { //if(ageLS == "true")
-        } else {
-            window.location.href = "/age.php"
-        }
-    }
-    // END AGE GATE
-
-
     // HOVER BEGIN
     // Hover Left
     function animateLeft() {
@@ -182,8 +148,6 @@
             });
 
         });
-
-
     }
 
 
