@@ -103,7 +103,7 @@ img {
   margin-left: auto;
   margin-right: auto; }
 
-.outbound, .sect-404 .hero-quote-author a, .sect-tenet .barley-badge .a, .sect-hiring p a, .sect-event .single-event-wrap a, .sect-connection .link-email a {
+.outbound, .sect-404 .hero-quote-author a, .sect-tenet .barley-badge .a, .sect-single p a, .sect-event .single-event-wrap a, .sect-connection .link-email a {
   border-bottom: 1px solid #94200E;
   margin-bottom: 2px;
   -webkit-transition: padding 0.1s ease-in-out;
@@ -112,7 +112,7 @@ img {
   -o-transition: padding 0.1s ease-in-out;
   transition: padding 0.1s ease-in-out; }
 
-.outbound:hover, .sect-404 .hero-quote-author a:hover, .sect-tenet .barley-badge .a:hover, .sect-hiring p a:hover, .sect-event .single-event-wrap a:hover, .sect-connection .link-email a:hover {
+.outbound:hover, .sect-404 .hero-quote-author a:hover, .sect-tenet .barley-badge .a:hover, .sect-single p a:hover, .sect-event .single-event-wrap a:hover, .sect-connection .link-email a:hover {
   padding-bottom: 2px; }
 
 /*----------------------------------------------------------------------------------------------------------------------------
@@ -159,7 +159,7 @@ p.h2,
 .grayed, h3, .single-event-wrap li, p a,
 .sect-event a, .hero-quote,
 .hero-quote-author, .person-name, .when-date, .tooltipsy, .choice-of-age .question span, .choice-of-sites .choiceA p,
-.choice-of-sites .choiceB p, .sect-tenet .barley-badge .a, .lone-beer .scrolly .h2, .scrolly .beer-profile p:nth-child(1), .scrolly .hop-profile h3, .beeradvocate-wrapper .beeradvocate-feed p .one-hundred, p.h2 .at-symbol, .sect-connection p.h5, .sect-hiring p strong, .sect-hiring p.highlight, .sect-connection .h5, p, .sect-connection p, .pushy li a, .bottle-stock, .single-hire-wrap ul, .sect-distribution .unitB {
+.choice-of-sites .choiceB p, .sect-tenet .barley-badge .a, .lone-beer .scrolly .h2, .scrolly .beer-profile p:nth-child(1), .scrolly .hop-profile h3, .beeradvocate-wrapper .beeradvocate-feed p .one-hundred, p.h2 .at-symbol, .sect-connection p.h5, .sect-single p strong, .sect-single p.highlight, .sect-connection .h5, p, .sect-connection p, .pushy li a, .bottle-stock, .single-single-wrap ul, .sect-distribution .unitB {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -192,7 +192,7 @@ em {
   font-weight: 400;
   font-style: normal; }
 
-.sect-connection p, .when, .pushy li a, .sect-them .single-them-wrap a, .sect-hiring p, .sect-hiring p a, .single-hire-wrap ul, .sect-connection input.text, .lone-beer .scrolly p, .lone-beer .scrolly p a, .scrolly .hop-profile p, .loading-indicator .load-wrap span {
+.sect-connection p, .when, .pushy li a, .sect-them .single-them-wrap a, .sect-single p, .sect-single p a, .single-single-wrap ul, .sect-connection input.text, .lone-beer .scrolly p, .lone-beer .scrolly p a, .scrolly .hop-profile p, .loading-indicator .load-wrap span {
   font-family: 'NewsGothicBT-Reg';
   font-weight: 400;
   font-style: normal; }
@@ -202,7 +202,7 @@ p span, p strong, .sect-them .single-them-wrap .location, .sect-tastingroom .h5,
   font-weight: 400;
   font-style: normal; }
 
-p.h2 .at-symbol, .sect-connection p.h5, .sect-hiring p strong, .sect-hiring p.highlight, .sect-connection .h5 {
+p.h2 .at-symbol, .sect-connection p.h5, .sect-single p strong, .sect-single p.highlight, .sect-connection .h5 {
   font-family: 'NewsGothicBdBT-Reg';
   font-weight: 400;
   font-style: normal; }
@@ -2784,47 +2784,47 @@ body.lone-tenet .sticky {
       content: ""; }
 
 /*----------------------------------------------------------------------------------------------------------------------------
-    SECT-HIRING
+    sect-single
 ------------------------------------------------------------------------------------------------------------------------------*/
-.sect-hiring {
-  background: url("../img/bg-hiring.jpg");
+.sect-single {
+  background: url("../img/bg-single.jpg");
   background-size: cover;
   padding-top: 70px;
   padding-bottom: 70px;
   border-bottom: 4px solid white; }
-  .sect-hiring:first-of-type {
+  .sect-single:first-of-type {
     margin-top: 98px; }
     @media screen and (max-width: 900px) {
-      .sect-hiring:first-of-type {
+      .sect-single:first-of-type {
         margin-top: 78px; } }
     @media screen and (max-width: 600px) {
-      .sect-hiring:first-of-type {
+      .sect-single:first-of-type {
         margin-top: 44px; } }
-  .sect-hiring:nth-of-type(4n-7) {
-    background: url("../img/bg-hiring-1.jpg");
+  .sect-single:nth-of-type(4n-7) {
+    background: url("../img/bg-single-1.jpg");
     background-size: cover; }
-  .sect-hiring:nth-of-type(4n-10) {
-    background: url("../img/bg-hiring-2.jpg");
+  .sect-single:nth-of-type(4n-10) {
+    background: url("../img/bg-single-2.jpg");
     background-size: cover; }
-  .sect-hiring:nth-of-type(4n-9) {
-    background: url("../img/bg-hiring-3.jpg");
+  .sect-single:nth-of-type(4n-9) {
+    background: url("../img/bg-single-3.jpg");
     background-size: cover; }
-  .sect-hiring:nth-of-type(4n-8) {
-    background: url("../img/bg-hiring-4.jpg");
+  .sect-single:nth-of-type(4n-8) {
+    background: url("../img/bg-single-4.jpg");
     background-size: cover; }
-  .sect-hiring:last-of-type {
+  .sect-single:last-of-type {
     border-bottom: none; }
-  .sect-hiring.no-employment {
+  .sect-single.no-employment {
     height: 100vh;
     margin-top: 0;
     padding-top: 148px; }
     @media screen and (max-width: 900px) {
-      .sect-hiring.no-employment {
+      .sect-single.no-employment {
         padding-top: 148px; } }
     @media screen and (max-width: 600px) {
-      .sect-hiring.no-employment {
+      .sect-single.no-employment {
         padding-top: 114px; } }
-  .sect-hiring .size1of1 {
+  .sect-single .size1of1 {
     max-width: 100%;
     padding-left: 20px;
     padding-right: 20px;
@@ -2832,63 +2832,63 @@ body.lone-tenet .sticky {
     float: inherit;
     margin: 0 auto; }
     @media screen and (min-width: 500px) {
-      .sect-hiring .size1of1 {
+      .sect-single .size1of1 {
         max-width: 75%; } }
     @media screen and (min-width: 899px) {
-      .sect-hiring .size1of1 {
+      .sect-single .size1of1 {
         max-width: 770px; } }
-  .sect-hiring .line {
+  .sect-single .line {
     display: block;
     width: 100px;
     margin: 0 auto;
     background: #94200E;
     height: 1px; }
-  .sect-hiring h2 {
+  .sect-single h2 {
     text-align: center;
     padding-left: 10px;
     padding-right: 10px; }
-  .sect-hiring h3 {
+  .sect-single h3 {
     margin-top: 25px; }
   @media screen and (max-width: 700px) {
-    .sect-hiring h3 {
+    .sect-single h3 {
       margin-top: 0; } }
-  .sect-hiring p a {
+  .sect-single p a {
     font-size: 16px;
     border-bottom: 1px solid #94200E; }
-  .sect-hiring p .line:first-child {
+  .sect-single p .line:first-child {
     margin-top: 35px;
     margin-bottom: 6px; }
-  .sect-hiring p .line:last-child {
+  .sect-single p .line:last-child {
     margin-top: 4px; }
-  .sect-hiring p.highlight {
+  .sect-single p.highlight {
     text-align: center;
     text-transform: uppercase; }
-  .sect-hiring .single-hire-wrap {
+  .sect-single .single-single-wrap {
     width: 340px; }
-  .sect-hiring .unitA .single-hire-wrap {
+  .sect-single .unitA .single-single-wrap {
     float: right;
     margin-right: 4.5%; }
-  .sect-hiring .unitB .single-hire-wrap {
+  .sect-single .unitB .single-single-wrap {
     float: left;
     margin-left: 4.5%; }
-  .sect-hiring .disclaimer {
+  .sect-single .disclaimer {
     font-size: 12px;
     line-height: 18px; }
 
 @media screen and (max-width: 900px) {
-  .sect-hiring .single-hire-wrap {
+  .sect-single .single-single-wrap {
     width: 70%; } }
 @media screen and (max-width: 700px) {
-  .sect-hiring .size1of2 {
+  .sect-single .size1of2 {
     width: 100%; }
-  .sect-hiring .unitA .single-hire-wrap,
-  .sect-hiring .unitB .single-hire-wrap {
+  .sect-single .unitA .single-single-wrap,
+  .sect-single .unitB .single-single-wrap {
     float: none;
     margin: 0 auto; } }
 @media screen and (max-width: 500px) {
-  .sect-hiring .single-hire-wrap {
+  .sect-single .single-single-wrap {
     width: 90%; } }
-.single-hire-wrap ul {
+.sect-single ul {
   display: block;
   float: left;
   margin-top: 25px;
@@ -2902,11 +2902,11 @@ body.lone-tenet .sticky {
           }
   */ }
   @media screen and (max-width: 900px) {
-    .single-hire-wrap ul {
+    .sect-single ul {
       margin-top: 22px;
       font-size: 15px;
       line-height: 23px; } }
-  .single-hire-wrap ul li {
+  .sect-single ul li {
     float: left;
     width: 100%;
     list-style-type: disc;
@@ -2914,7 +2914,7 @@ body.lone-tenet .sticky {
     margin-left: 15px;
     padding-left: 5px; }
     @media screen and (min-width: 700px) {
-      .single-hire-wrap ul li:last-child {
+      .sect-single ul li:last-child {
         margin-bottom: 24px; } }
 
 /*----------------------------------------------------------------------------------------------------------------------------

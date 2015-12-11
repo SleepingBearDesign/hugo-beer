@@ -3,12 +3,14 @@
 	{{ partial "navbar.html" . }}
     <div class="site-overlay"></div>
     <div class="wrapper">
-        <h1 data-section-id="#home" class="youarehere">{{ .Site.Title }}</h1>
-        <section id="{{ .Title | urlize }}" class="selfclear">
+        <h1 data-section-id="#home" class="youarehere">{{ .Title }}</h1>
+        <section id="{{ .Title | urlize }}">
         	<div class="sect-single selfclear">
         		<div class="size1of1">
                     <p>
-                        {{ .Content }}
+                        <p>
+                            {{ .Content }}
+                        </p>
                     </p>
                 </div>
         	</div>
