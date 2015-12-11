@@ -10,13 +10,13 @@
 <meta property="og:description" content="{{ .Site.Params.description }}" />
 <meta property="og:image" content="{{ .Site.BaseURL }}img/fb-share.jpg" />
 <!-- Twitter OG -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@{{ .Site.Params.twitter }}">
+<meta name="twitter:card" content="summary_large_image">
+{{ with .Site.Params.twitter }}<meta name="twitter:site" content="@{{ . }}"/>{{ end }}
 <meta name="twitter:image" content="{{ .Site.BaseURL }}img/twitter-share.jpg">
 <meta name="twitter:title" content="{{ .Site.Title }}">
 <meta name="twitter:description" content="{{ .Site.Params.description }}">
 <!-- Windows 8.1 Tiles -->
-<meta name="application-name" content="Pigeon Hill Brewing"/>
+<meta name="application-name" content="{{ .Site.Title }}"/>
 <meta name="msapplication-TileColor" content="#000000"/>
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="msapplication-square70x70logo" content="ico/tiny.png"/>

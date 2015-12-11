@@ -2,8 +2,8 @@ baseurl = "http://45.55.251.5/"
 languageCode = "en-us"
 title = "Pigeon Hill Brewing Co."
 theme = "beer"
-GoogleAnalytics = "XX-00000000-0"
-Copyright = "© 2015 Pigeon Hill Brewing Company, LLC. All Rights Reserved"
+googleanalytics = "XX-00000000-0"
+copyright = "© 2015 Pigeon Hill Brewing Company, LLC. All Rights Reserved"
 disableRSS = true
 
 [params]
