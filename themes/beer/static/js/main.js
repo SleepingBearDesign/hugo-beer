@@ -469,7 +469,7 @@
             console.log("getJSON failed, status: " + textStatus + ", error: " + error);
             console.log(d);
 
-        }); // end jsonp call
+        }); // end json call
 
 
         var jsonCall = function(data) {
