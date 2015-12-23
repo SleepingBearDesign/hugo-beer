@@ -482,6 +482,7 @@
                 //create an array to store the info we need         
                 checkinArray = {
                     beer: checkInData[i].beer.beer_name,
+                    bid: checkInData[i].beer.bid,
                     firstName: checkInData[i].user.first_name,
                     lastName: checkInData[i].user.last_name,
                     photo: checkInData[i].user.user_avatar,
@@ -517,20 +518,20 @@
                 if (date === todaysDate) {
 
                     date = '<p class = "time">' + moment(checkinsArray[i].date).fromNow(true) + ' ago</p>';
-                    beer = ' is drinking a <a href = "https://untappd.com/beer/' + beerID + '" target = "_blank">' + checkinsArray[i].beer + '</a>';
+                    beer = ' is drinking a <a href = "https://untappd.com/beer/' + checkinsArray[i].bid + '" target = "_blank">' + checkinsArray[i].beer + '</a>';
 
                 }
 
                 // if the date of the post matches yesterdays date
                 else if (date === yesterdaysDate) {
                     date = '<p class = "time"> Yesterday at ' + time + '</p>';
-                    beer = 'was drinking a <a href = "https://untappd.com/beer/' + beerID + '" target = "_blank">' + checkinsArray[i].beer + '</a>';
+                    beer = 'was drinking a <a href = "https://untappd.com/beer/' + checkinsArray[i].bid + '" target = "_blank">' + checkinsArray[i].beer + '</a>';
                 }
 
                 // if the date of the post doens't match yesterday or todays
                 else {
                     date = '<p class = "time">' + date + ' at ' + time + '</p>';
-                    beer = 'was drinking a <a href = "https://untappd.com/beer/' + beerID + '" target = "_blank">' + checkinsArray[i].beer + '</a>';
+                    beer = 'was drinking a <a href = "https://untappd.com/beer/' + checkinsArray[i].bid + '" target = "_blank">' + checkinsArray[i].beer + '</a>';
                 }
 
                 // if the venue is defined
