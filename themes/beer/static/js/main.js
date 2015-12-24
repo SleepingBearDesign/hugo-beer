@@ -17,6 +17,10 @@
     var currentElement = $('.section').first();
     var beerSliderThreshold = 750;
 
+    var todaysDate = moment().format('MMMM Do');
+    var currentTime = moment().format('h:mm a');
+    var yesterdaysDate = moment().subtract(1, 'days').format('MMMM Do');
+    var tomorrowsDate = moment().add(1, 'days').format('MMMM Do');
 
     // ON LOAD
     $win.ready(function() {
@@ -29,6 +33,9 @@
 
         // initialize everything
         init();
+
+        // grab latest fb event
+        fbevents();
 
         // when we scroll call the onscroll function    
         $(document).on("scroll", onScroll);
@@ -190,7 +197,99 @@
             });
 
         });
+
+
     }
+
+    var eventsArray = [];
+    function fbevents() {
+        console.log("in fbevents");
+        var pageAccessToken = 'CAACEdEose0cBAETpjjyWMZBj0zbrhiZACv7y0NmPEBRb0ff9TZAFS2HPg6CnrrsmoBgcx7lg6MjwrRmZBXSGGCJensgHmmfCTF017eoxlYdKPpbjFIoWh1GHMOXMHWIRKUf43PrwCvjJYlDggtTr9TFKuhXo4FF6c6LKZAZAWlCNyMzZBd99GmjFl4LihPyyL7c2pDjZCXC16wZDZD';
+        if (typeof $('#distribution').data("pageid") !== "undefined") {
+            pid = $('#distribution').data("pageid");
+            $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+                FB.init({
+                  appId: '535790599912124',
+                  version: 'v2.5'
+                });     
+                /* make the API call */
+                FB.api(
+                    "/"+ pid +"/events",{
+                      access_token : pageAccessToken
+                    },
+                    function (response) {
+                      if (response && !response.error) {
+                        /* handle the result */
+                        var eventsData = response.data;
+
+                        // go through each of the sets of data
+                        $.each(eventsData, function(i) {
+
+                            //create an array to store the info we need         
+                            eventArray = {
+                                description: eventsData[i].description,
+                                id: eventsData[i].id,
+                                name: eventsData[i].name,
+                                startTime: eventsData[i].start_time,
+                                endTime: eventsData[i].end_time,
+                                location: eventsData[i].place.name,
+                                city: eventsData[i].place.location.city,
+                                state: eventsData[i].place.location.state
+                            };
+                            // push this array to the global array to access later
+                            eventsArray.push(eventArray);
+                        });
+                      }
+                      else {
+                        console.log("Facebook Response Error: " + JSON.stringify(response));
+                      }
+                      outputfbHTML();
+                    }
+                );
+            });
+        }
+    }
+
+    // create a function to display HTML from the FB Events feed
+    var outputfbHTML = function() {
+
+        // go through each of the arrays in the eventsArray object
+        var i=0;
+        // for (i = 0; i < eventsArray.length; i++) {
+
+            // store the info we need with the associated HTML
+            name = '<h2>' + eventsArray[i].name + '</h2>';
+            date = moment(eventsArray[i].startTime).format('MMMM Do');
+            time = '<li>' + moment(eventsArray[i].startTime).format('h:mm a') + ' - ' + moment(eventsArray[i].endTime).format('h:mm a') + '</li>';
+            place = '<li>' + eventsArray[i].city + ', ' + eventsArray[i].state + '</li>';
+            description = '<p>' + eventsArray[i].description + '</p>';
+            link = '<a class="selfclear" href="http://www.facebook.com/events/' + eventsArray[i].id + '/" target="_blank">Join the event <span class="caret-prompt">››</span></a>';
+
+            // if the date of the post matches todays date
+            if (date === todaysDate) {
+                date = '<li> Today </li>';
+            }
+
+            // if the date of the post matches tomorrows date
+            else if (date === tomorrowsDate) {
+                date = '<li> Tomorrow </li>';
+            }
+
+            // if the date of the post matches yesterdays date
+            else if (date === yesterdaysDate) {
+                date = '<li> Yesterday </li>';
+            }
+
+            // if the date of the post doens't match yesterday or todays
+            else {
+                date = '<li>' + date + '</li>';
+            }
+
+            // append the html to the UL
+            $('#events').append('<div class="size1of1"><div class="single-event-wrap">' + name + '<ul> ' + date + time + place + '</ul>' + description + link + '</div></div>');
+        // }
+    }
+    // END FBEVENTS
 
 
     // RESET FUNCTION
@@ -434,9 +533,6 @@
     var beerID = 1234; // this needs to be updated for each page
     var breweryID = 117201; // Pigeon Hill Brewery
     var venueID = 1405081; // Pigeon Hill Brewery
-    var todaysDate = moment().format('MMMM Do');
-    var currentTime = moment().format('h:mm a');
-    var yesterdaysDate = moment().subtract(1, 'days').format('MMMM Do');
 
     function checkSomeBeerIDs() {
         if (typeof $('#untappd-wrapper').data("beerid") !== "undefined") {
@@ -497,11 +593,11 @@
             });
 
             // once we do all that call the function to display the HTML on the page        
-            outputHTML();
+            outputuntappdHTML();
         };
 
         // create a function to display HTML from the UNTAPPD feed
-        var outputHTML = function() {
+        var outputuntappdHTML = function() {
 
             // go through each of the arrays in the checkinsArray object
             for (i = 0; i < checkinsArray.length; i++) {
