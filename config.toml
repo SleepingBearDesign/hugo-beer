@@ -17,6 +17,7 @@ disableRSS = true
   growlerstatus = "We do offer growler and howler fills from the brewery so fill 'er on up!"
   team = ["Jonathan Crawford", "Carl Davidson", "Arthur Porter", "Andrea Bell", "Emily Jensen", "Crystal Barrett", "Brody Berson"]
   twitter = "pigeonhillbrew"
+  twitterwidgetID = "681692567893708802"
   facebook = "PigeonHillBrew"
   fbpageID = "235859623211601"
   instagram = "pigeonhillbrew"

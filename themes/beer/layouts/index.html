@@ -30,7 +30,7 @@
                                     <span class="line"></span>
                                     <h2>{{ .Title }}</h2>
                                     <span class="line"></span>
-                                    <p>View Beer <span class="caret-prompt">››</span></p>
+                                    <!-- <p>View Beer</p> -->
                                 </span>
                             </a>
                         </div>
@@ -74,14 +74,14 @@
             <div class="size1of4 single-team-wrap job-opening">
                 <a href="#" class="selfclear">
                     <p class="person-name">Want to work<br>at {{ .Title }}?</p>
-                    <p class="job-link"><a href="/jobs">Job openings <span class="caret-prompt">››</span></a></p>
+                    <p class="job-link"><a class="selfclear" href="/jobs">Job Openings</a></p>
                     <img class="teamImg" src="img/job-photo.jpg" alt="We're Hiring">
                 </a>
             </div>
         </section>
         {{ end }}
         {{ if .Site.Params.instagram }}
-        <h1 data-section-id="#instagram">Our Feed</h1>
+        <h1 data-section-id="#instagram">Our Instagram Feed</h1>
         <section id="instagram" class="sect-instagram selfclear">
         	<div class="size1of1">
         		<div class="single-instagram-header">
@@ -91,6 +91,20 @@
         	<div class="size1of1">
         		<div id="instafeed"></div>
         	</div>
+        </section>
+        {{ end }}
+        {{ if .Site.Params.twitterwidgetID }}
+        <h1 data-section-id="#twitter">Our Twitter Feed</h1>
+        <section id="twitter" class="sect-twitter selfclear">
+            <div class="size1of1">
+                <div class="single-twitter-header">
+                    <p class="h2"><span class="grayed">Follow</span> <a href="http://twitter.com/{{ .Site.Params.twitter }}" target="_blank"><span class="at-symbol">@</span>{{ .Site.Params.twitter }}</a> <span class="grayed">on Twitter</span></p>
+                </div>
+            </div>
+            <div class="size1of1">
+                <div class="single-tweet-wrap"><a href="http://twitter.com/{{ .Site.Params.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a></div>
+                <div id="twitterfeed" class="single-tweet-wrap" data-widgetid="{{ .Site.Params.twitterwidgetID }}"></div>
+            </div>
         </section>
         {{ end }}
         <h1 data-section-id="#tastingroom">Our Tasting Room</h1>

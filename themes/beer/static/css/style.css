@@ -103,7 +103,7 @@ img {
   margin-left: auto;
   margin-right: auto; }
 
-.outbound, .sect-404 .hero-quote-author a, .sect-tenet .barley-badge .a, .sect-single p a, .sect-event .single-event-wrap a, .sect-connection .link-email a {
+.outbound, .sect-404 .hero-quote-author a, .sect-tenet .barley-badge .a, .sect-single p a, .sect-event .single-event-wrap a, .sect-twitter .single-tweet-wrap a, .sect-connection .link-email a {
   border-bottom: 1px solid #94200E;
   margin-bottom: 2px;
   -webkit-transition: padding 0.1s ease-in-out;
@@ -112,7 +112,7 @@ img {
   -o-transition: padding 0.1s ease-in-out;
   transition: padding 0.1s ease-in-out; }
 
-.outbound:hover, .sect-404 .hero-quote-author a:hover, .sect-tenet .barley-badge .a:hover, .sect-single p a:hover, .sect-event .single-event-wrap a:hover, .sect-connection .link-email a:hover {
+.outbound:hover, .sect-404 .hero-quote-author a:hover, .sect-tenet .barley-badge .a:hover, .sect-single p a:hover, .sect-event .single-event-wrap a:hover, .sect-twitter .single-tweet-wrap a:hover, .sect-connection .link-email a:hover {
   padding-bottom: 2px; }
 
 /*----------------------------------------------------------------------------------------------------------------------------
@@ -856,8 +856,7 @@ a {
 ------------------------------------------------------------------------------------------------------------------------------*/
 #home, #tenets, #beer, #friends,
 #team, #instagram, #tastingroom,
-#distribution, #events, #Deri-Farm,
-#NE-Distilling, #Aaron-Staples {
+#distribution, #events, #twitter{
   padding-top: 97px;
   /*same height as header*/
   margin-top: -97px;
@@ -865,15 +864,13 @@ a {
   @media screen and (max-width: 900px) {
     #home, #tenets, #beer, #friends,
     #team, #instagram, #tastingroom,
-    #distribution, #events, #Deri-Farm,
-    #NE-Distilling, #Aaron-Staples {
+    #distribution, #events, #twitter {
       padding-top: 77px;
       margin-top: -77px; } }
   @media screen and (max-width: 600px) {
     #home, #tenets, #beer, #friends,
     #team, #instagram, #tastingroom,
-    #distribution, #events, #Deri-Farm,
-    #NE-Distilling, #Aaron-Staples {
+    #distribution, #events, #twitter {
       padding-top: 43px;
       margin-top: -43px; } }
 
@@ -1103,7 +1100,7 @@ body:after {
   padding-top: 25px;
   text-align: center; }
 
-.single-event-wrap {
+.single-event-wrap, .single-tweet-wrap {
   position: relative;
   width: 100%;
   text-align: center; }
@@ -2618,56 +2615,64 @@ body.lone-tenet .sticky {
     SECT-INSTAGRAM,  SECT-SHOPWINDOW
 ------------------------------------------------------------------------------------------------------------------------------*/
 .sect-instagram .h2,
+.sect-twitter .h2,
 .sect-shopwindow .h2 {
   text-align: center;
   line-height: 118px;
   width: 100%; }
 .sect-instagram a .h2,
 .sect-instagram .h2 a,
+.sect-twitter a .h2,
+.sect-twitter .h2 a,
 .sect-shopwindow a .h2,
 .sect-shopwindow .h2 a {
   color: #f5f4ef; }
 .sect-instagram i,
+.sect-twitter i,
 .sect-shopwindow i {
   margin-right: 15px;
   font-size: 36px; }
 
-.sect-instagram a, .sect-instagram .grayed {
+.sect-instagram a, .sect-instagram .grayed, .sect-twitter a, .sect-twitter .grayed {
   font-size: 32px; }
-.sect-instagram p.h2 .at-symbol {
+.sect-instagram p.h2 .at-symbol, .sect-twitter p.h2 .at-symbol {
   font-size: 23px; }
 @media screen and (max-width: 1000px) {
-  .sect-instagram a, .sect-instagram .grayed {
+  .sect-instagram a, .sect-instagram .grayed, .sect-twitter a, .sect-twitter .grayed {
     font-size: 28px; }
-  .sect-instagram p.h2 .at-symbol {
+  .sect-instagram p.h2 .at-symbol, .sect-twitter p.h2 .at-symbol {
     font-size: 20px; } }
 @media screen and (max-width: 850px) {
-  .sect-instagram a, .sect-instagram .grayed {
+  .sect-instagram a, .sect-instagram .grayed, .sect-twitter a, .sect-twitter .grayed {
     font-size: 23px; }
-  .sect-instagram p.h2 .at-symbol {
+  .sect-instagram p.h2 .at-symbol, .sect-twitter p.h2 .at-symbol {
     font-size: 17px; } }
 @media screen and (max-width: 750px) {
-  .sect-instagram a, .sect-instagram .grayed {
+  .sect-instagram a, .sect-instagram .grayed, .sect-twitter a, .sect-twitter .grayed {
     font-size: 20px; }
-  .sect-instagram p.h2 .at-symbol {
+  .sect-instagram p.h2 .at-symbol, .sect-twitter p.h2 .at-symbol {
     font-size: 13px; } }
 
 @media screen and (max-width: 900px) {
   .sect-instagram .h2,
+  .sect-twitter .h2,
   .sect-shopwindow .h2 {
     line-height: 82px; }
   .sect-instagram i,
+  .sect-twitter i,
   .sect-shopwindow i {
     font-size: 26px; } }
 .single-instagram-header,
+.single-twitter-header,
 .single-shop-header {
   height: 110px;
   background: #B53926;
   color: #f5f4ef; }
 
-.single-instagram-header .grayed, .single-instagram-header a {
+.single-instagram-header .grayed, .single-instagram-header a,
+.single-twitter-header .grayed, .single-twitter-header a {
   opacity: .8; }
-.single-instagram-header a:hover {
+.single-instagram-header a:hover, .single-twitter-header a:hover {
   opacity: 1; }
 
 .single-shop-header a {
@@ -2682,6 +2687,7 @@ body.lone-tenet .sticky {
 
 @media screen and (max-width: 900px) {
   .single-instagram-header,
+  .single-twitter-header,
   .single-shop-header {
     height: 80px; } }
 /*----------------------------------------------------------------------------------------------------------------------------
@@ -2715,7 +2721,8 @@ body.lone-tenet .sticky {
 
 @media screen and (max-width: 600px) {
   .sect-instagram .size1of1,
-  .sect-shopwindow .size1of1 {
+  .sect-shopwindow .size1of1,
+  .sect-twitter .size1of1 {
     display: none; } }
 /*----------------------------------------------------------------------------------------------------------------------------
     SECT-SHOPWINDOW
@@ -3075,6 +3082,56 @@ body.lone-tenet .sticky {
   .sect-event li:after {
     content: ",";
     margin: 0; } }
+/*----------------------------------------------------------------------------------------------------------------------------
+    SECT-TWITTER
+------------------------------------------------------------------------------------------------------------------------------*/
+.sect-twitter .single-tweet-wrap {
+  background: #f5f4ef; }
+.sect-twitter .single-tweet-wrap {
+  padding: 45px 15%; }
+.sect-twitter .single-tweet-wrap:nth-of-type(odd) {
+  padding-bottom: 0;}
+.sect-twitter .single-tweet-wrap:nth-of-type(even) {
+  padding-top: 0;}
+  .sect-twitter .single-tweet-wrap h3 {
+    margin-top: 0; }
+.sect-twitter ul {
+  margin: 0 0 -10px 0; }
+.sect-twitter li {
+  display: inline-block; }
+  .sect-twitter li:after {
+    content: "|";
+    margin: 0 0 0 4px;
+    font-size: 22px; }
+  .sect-twitter li:last-child:after {
+    content: none; }
+
+.sect-twitter .single-tweet-wrap .user, .sect-twitter .single-tweet-wrap .tweet {
+  float:left;
+}
+
+
+
+.sect-twitter .single-tweet-wrap .user img, .sect-twitter .single-tweet-wrap .user span span {
+  display:none;
+}
+
+.sect-twitter .single-tweet-wrap .user a > span {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  float:left;
+}
+
+.sect-twitter .single-tweet-wrap .user a > span:last-child:after { 
+    content: ": ";
+}
+
+@media screen and (max-width: 900px) {
+  .sect-twitter .single-tweet-wrap {
+    padding: 45px 8%; } }
+@media screen and (max-width: 700px) {
+  .sect-twitter ul {
+    margin: 0 0 22px 0; }}
 /*----------------------------------------------------------------------------------------------------------------------------
     SECT-CONNECTION
 ------------------------------------------------------------------------------------------------------------------------------*/
